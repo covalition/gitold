@@ -8,14 +8,13 @@ namespace Gitoza
 {
     public static class DomainFacade
     {
-        internal static int[,] GetCommitCounts(string path) {
+        internal static List<int> GetCommitCounts(string path) {
             if (string.IsNullOrEmpty(path))
                 throw new Exception("The path is not set.");
-            int[,] res = new int[7, 24];
-            for (int i = 0; i < 24; i++)
-                for (int j = 0; j < 7; j++) {
-                    res[j, i] = i + j;
-                }
+            List<int> res = new List<int>();
+            for (int j = 0; j < 7; j++)
+                for (int i = 0; i < 24; i++)
+                    res.Add(i + j);
             return res;
         }
     }

@@ -23,23 +23,26 @@ namespace Gitoza
         public Week() {
             InitializeComponent();
 
-            for (int i = 1; i <= 24; i++) {
-                for (int j = 1; j <= 7; j++) {
+            for (int i = 0; i < 24; i++) {
+                for (int j = 0; j < 7; j++) {
                     Ellipse e = new Ellipse();
-                    e.SetValue(Grid.RowProperty, j);
-                    e.SetValue(Grid.ColumnProperty, i);
-                    Binding binding = new Binding(string.Format("Diameters[{0}][{1}]", j, i));
+                    e.SetValue(Grid.RowProperty, j + 1);
+                    e.SetValue(Grid.ColumnProperty, i + 1);
+                    Binding binding = new Binding(string.Format("Diameters[{0}]", j * 24 + i));
                     e.SetBinding(Ellipse.WidthProperty, binding);
                     e.SetBinding(Ellipse.HeightProperty, binding);
-                    binding = new Binding(string.Format("Values[{0}][{1}]", j, i));
+                    //e.Width = 20;
+                    //e.Height = 20;
+                    e.Fill = new SolidColorBrush(Colors.Black);
+                    binding = new Binding(string.Format("Values[{0}]", j * 24 + i));
                     e.SetBinding(Ellipse.ToolTipProperty, binding);
                     e.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                     e.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                     grMain.Children.Add(e);
                 }
                 TextBlock tb = new TextBlock();
-                tb.Text = (i - 1).ToString();
-                tb.SetValue(Grid.ColumnProperty, i);
+                tb.Text = i.ToString();
+                tb.SetValue(Grid.ColumnProperty, i + 1);
                 tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 grMain.Children.Add(tb);
             }

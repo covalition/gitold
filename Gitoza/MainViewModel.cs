@@ -24,12 +24,12 @@ namespace Gitoza
         private void refreshAction() {
             try {
                 Values = DomainFacade.GetCommitCounts(Path);
-                int max = _values.Cast<int>().Max();
+                int max = _values.Max();
                 if (max != 0) {
-                    int[,] diameters = new int[7, 24];
+                    List<int> diameters = new List<int>();
                     for (int i = 0; i < 24; i++)
                         for (int j = 0; j < 7; j++) {
-                            diameters[j, i] = (int)(((double)_values[j, i] / max) * 20);
+                            diameters.Add((int)(((double)_values[j * 24 + i] / max) * 20));
                         }
                     Diameters = diameters;
                 }
@@ -59,9 +59,9 @@ namespace Gitoza
             }
         }
 
-        private int[,] _diameters;
+        private List<int> _diameters;
 
-        public int[,] Diameters {
+        public List<int> Diameters {
             get {
                 return _diameters;
             }
@@ -73,9 +73,9 @@ namespace Gitoza
             }
         }
 
-        private int[,] _values;
+        private List<int> _values;
 
-        public int[,] Values {
+        public List<int> Values {
             get {
                 return _values;
             }
