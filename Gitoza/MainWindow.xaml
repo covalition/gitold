@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Label>Local repository path:</Label>
-            <TextBox Margin="10,0" Grid.Column="1"></TextBox>
+            <TextBox Margin="10,0" Grid.Column="1" Text="{Binding Path=Path}"></TextBox>
             <Button Grid.Column="2" Command="{Binding Refresh}">Refresh</Button>
         </Grid>
         <Grid Grid.Row="1">

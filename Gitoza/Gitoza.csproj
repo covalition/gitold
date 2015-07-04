@@ -73,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DomainFacade.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
