@@ -23,16 +23,24 @@ namespace Gitoza
         public Week() {
             InitializeComponent();
 
-            for(int i = 1; i <= 24; i++)
+            for (int i = 1; i <= 24; i++) {
                 for (int j = 1; j <= 7; j++) {
                     Ellipse e = new Ellipse();
                     e.SetValue(Grid.RowProperty, j);
                     e.SetValue(Grid.ColumnProperty, i);
-                    Binding binding = new Binding(string.Format("Diameter[{0}][{1}]", j, i));
+                    Binding binding = new Binding(string.Format("Diameters[{0}][{1}]", j, i));
                     e.SetBinding(Ellipse.WidthProperty, binding);
                     e.SetBinding(Ellipse.HeightProperty, binding);
+                    e.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                    e.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                     grMain.Children.Add(e);
                 }
+                TextBlock tb = new TextBlock();
+                tb.Text = (i - 1).ToString();
+                tb.SetValue(Grid.ColumnProperty, i);
+                tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                grMain.Children.Add(tb);
+            }
         }
     }
 }

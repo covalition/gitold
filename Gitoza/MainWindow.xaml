@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Gitoza"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -16,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <Label>Local repository path:</Label>
             <TextBox Margin="10,0" Grid.Column="1"></TextBox>
-            <Button Grid.Column="2">Refresh</Button>
+            <Button Grid.Column="2" Command="{Binding Refresh}">Refresh</Button>
         </Grid>
         <Grid Grid.Row="1">
             <local:Week/>
