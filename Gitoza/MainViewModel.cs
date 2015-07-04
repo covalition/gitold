@@ -9,7 +9,7 @@ using GalaSoft.MvvmLight.Command;
 
 namespace Gitoza
 {
-    public class MainViewModel: ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         #region Refresh command
 
@@ -27,10 +27,9 @@ namespace Gitoza
                 int max = _values.Max();
                 if (max != 0) {
                     List<int> diameters = new List<int>();
-                    for (int i = 0; i < 24; i++)
-                        for (int j = 0; j < 7; j++) {
+                    for (int j = 0; j < 7; j++)
+                        for (int i = 0; i < 24; i++)
                             diameters.Add((int)(((double)_values[j * 24 + i] / max) * 20));
-                        }
                     Diameters = diameters;
                 }
             }

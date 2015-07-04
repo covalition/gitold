@@ -31,8 +31,6 @@ namespace Gitoza
                     Binding binding = new Binding(string.Format("Diameters[{0}]", j * 24 + i));
                     e.SetBinding(Ellipse.WidthProperty, binding);
                     e.SetBinding(Ellipse.HeightProperty, binding);
-                    //e.Width = 20;
-                    //e.Height = 20;
                     e.Fill = new SolidColorBrush(Colors.Black);
                     binding = new Binding(string.Format("Values[{0}]", j * 24 + i));
                     e.SetBinding(Ellipse.ToolTipProperty, binding);
