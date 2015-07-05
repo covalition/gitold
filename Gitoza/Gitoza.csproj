@@ -74,6 +74,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DomainFacade.cs" />
+    <Compile Include="GitCommit.cs" />
+    <Compile Include="GitFileStatus.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ParseGitLog.cs" />
     <Compile Include="Week.xaml.cs">

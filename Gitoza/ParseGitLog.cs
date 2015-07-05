@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Gitoza
 {
-    class ParseGitLog
+    // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
+    public class ParseGitLog
     {
         private bool StartsWithHeader(string line) {
             if (line.Length > 0 && char.IsLetter(line[0])) {
