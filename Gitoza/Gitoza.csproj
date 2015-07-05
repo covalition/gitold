@@ -75,6 +75,7 @@
     </ApplicationDefinition>
     <Compile Include="DomainFacade.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="ParseGitLog.cs" />
     <Compile Include="Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
     </Compile>
