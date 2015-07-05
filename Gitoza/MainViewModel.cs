@@ -26,10 +26,12 @@ namespace Gitoza
                 Values = DomainFacade.GetCommitCounts(Path);
                 int max = _values.Max();
                 if (max != 0) {
-                    List<int> diameters = new List<int>();
-                    for (int j = 0; j < 7; j++)
-                        for (int i = 0; i < 24; i++)
-                            diameters.Add((int)(((double)_values[j * 24 + i] / max) * 20));
+                    int[] diameters = new int[7 * 24];
+                    for (int x = 0; x < 7 * 24; x++)
+                        diameters[x] = (int)(((double)_values[x] / max) * 20);
+                        //for (int j = 0; j < 7; j++)
+                        //    for (int i = 0; i < 24; i++)
+                        //        diameters.Add((int)(((double)_values[j * 24 + i] / max) * 20));
                     Diameters = diameters;
                 }
             }
@@ -44,7 +46,7 @@ namespace Gitoza
 
         #endregion
 
-        private string _path;
+        private string _path = "C:\\Users\\Roman\\Documents\\Visual Studio 2013\\Projects\\CeGam";
 
         public string Path {
             get {
@@ -58,9 +60,9 @@ namespace Gitoza
             }
         }
 
-        private List<int> _diameters;
+        private int[] _diameters;
 
-        public List<int> Diameters {
+        public int[] Diameters {
             get {
                 return _diameters;
             }
@@ -72,9 +74,9 @@ namespace Gitoza
             }
         }
 
-        private List<int> _values;
+        private int[] _values;
 
-        public List<int> Values {
+        public int[] Values {
             get {
                 return _values;
             }
