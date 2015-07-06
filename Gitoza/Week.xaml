@@ -53,7 +53,7 @@
         <TextBlock Grid.Row="2" Text="Mon" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="3" Text="Tue" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="4" Text="Wed" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="5" Text="The" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="5" Text="Thu" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="6" Text="Fri" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="7" Text="Sat" VerticalAlignment="Center"/>
     </Grid>

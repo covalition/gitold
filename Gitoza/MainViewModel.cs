@@ -29,9 +29,6 @@ namespace Gitoza
                     int[] diameters = new int[7 * 24];
                     for (int x = 0; x < 7 * 24; x++)
                         diameters[x] = (int)(((double)_values[x] / max) * 20);
-                        //for (int j = 0; j < 7; j++)
-                        //    for (int i = 0; i < 24; i++)
-                        //        diameters.Add((int)(((double)_values[j * 24 + i] / max) * 20));
                     Diameters = diameters;
                 }
             }
@@ -46,7 +43,7 @@ namespace Gitoza
 
         #endregion
 
-        private string _path = "C:\\Users\\Roman\\Documents\\Visual Studio 2013\\Projects\\CeGam";
+        private string _path;
 
         public string Path {
             get {

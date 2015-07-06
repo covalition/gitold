@@ -10,8 +10,6 @@ using System.Windows;
 namespace Gitoza
 {
     // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
-
-    // http://stackoverflow.com/questions/7949956/why-does-git-diff-on-windows-warn-that-the-terminal-is-not-fully-functional
     public static class DomainFacade
     {
         private static string listShaWithFiles(string path) {
@@ -44,22 +42,7 @@ namespace Gitoza
                 MessageBox.Show(e.Data);
         }
 
-        private static void test(string[] args) {
-            string path = @"C:\DEV\github\Codegrams";
-            if (args.Length > 0)
-                path = args[0];
-            string output = listShaWithFiles(path);
-
-            ParseGitLog parser = new ParseGitLog();
-            List<GitCommit> commits = parser.Parse(output);
-
-            Console.WriteLine(commits.Count);
-            foreach (var commit in commits) {
-                commit.Print();
-            }
-        }
-        
-        internal static int[] GetCommitCounts(string repoPath) {
+        public static int[] GetCommitCounts(string repoPath) {
             if (string.IsNullOrEmpty(repoPath))
                 throw new Exception("The path is not set.");
 
@@ -67,23 +50,15 @@ namespace Gitoza
             ParseGitLog parser = new ParseGitLog();
             List<GitCommit> commits = parser.Parse(output);
             IEnumerable<string> datesAsString = commits.Select(c => c.Headers["Date"]);
-            //CultureInfo ci = new CultureInfo("en-US");
-            //DateTime dt = DateTime.Parse(l.First(), ci.DateTimeFormat);
+            
             var counts = datesAsString.Select(str => DateTime.Parse(str))
                 .GroupBy(d => new { d.DayOfWeek, d.Hour })
                 .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
-                //.OrderBy(s => s.DayOfWeek)
-                //.ThenBy(s => s.Hour);
+            
             int[] res = new int[7 * 24];
             foreach (var c in counts)
                 res[(int)c.DayOfWeek * 24 + c.Hour] = c.Count;
             return res;
-
-            //List<int> res = new List<int>();
-            //for (int j = 0; j < 7; j++)
-            //    for (int i = 0; i < 24; i++)
-            //        res.Add(i + j);
-            //return res;
         }
     }
 }

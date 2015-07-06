@@ -9,7 +9,7 @@ namespace Gitoza
     // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
     public class ParseGitLog
     {
-        private bool StartsWithHeader(string line) {
+        private bool startsWithHeader(string line) {
             if (line.Length > 0 && char.IsLetter(line[0])) {
                 var seq = line.SkipWhile(ch => Char.IsLetter(ch) && ch != ':');
                 return seq.FirstOrDefault() == ':';
@@ -17,7 +17,7 @@ namespace Gitoza
             return false;
         }
 
-        internal List<GitCommit> Parse(string output) {
+        public List<GitCommit> Parse(string output) {
             GitCommit commit = null;
             var commits = new List<GitCommit>();
             bool processingMessage = false;
@@ -32,7 +32,7 @@ namespace Gitoza
                         commit.Sha = line.Split(' ')[1];
                     }
 
-                    if (StartsWithHeader(line)) {
+                    if (startsWithHeader(line)) {
                         var header = line.Split(':')[0];
                         var val = string.Join(":", line.Split(':').Skip(1)).Trim();
 
