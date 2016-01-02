@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,20 +19,22 @@ namespace Gitoza
         }
 
         private static string runProcess(string command) {
-            // Start the child process.
             Process p = new Process();
-            // Redirect the output stream of the child process.
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.FileName = Properties.Settings.Default.GitExecutable;
+
+            string gitExecutable = Properties.Settings.Default.GitExecutable;
+            if (!File.Exists(gitExecutable))
+                throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
+            p.StartInfo.FileName = gitExecutable;
+            
             p.StartInfo.Arguments = command;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.StartInfo.CreateNoWindow = true;
             p.ErrorDataReceived += p_ErrorDataReceived;
             p.Start();
             p.BeginErrorReadLine();
-            // Read the output stream first and then wait.
             string output = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
             return output;
