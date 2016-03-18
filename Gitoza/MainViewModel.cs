@@ -28,7 +28,7 @@ namespace Gitoza
                 if (max != 0) {
                     int[] diameters = new int[7 * 24];
                     for (int x = 0; x < 7 * 24; x++)
-                        diameters[x] = (int)(((double)_values[x] / max) * 20);
+                        diameters[x] = (int)(((double)_values[x] / max) * 20); // http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value
                     Diameters = diameters;
                 }
             }
