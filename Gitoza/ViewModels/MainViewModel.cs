@@ -31,7 +31,7 @@ namespace Gitoza.ViewModels
             try {
                 int[,] _values = DomainFacade.GetCommitCounts(Path);
                 int max = _values.Cast<int>().Max();
-
+                int maxSumH = 0, maxSumD = 0;
                 for (int d = 0; d < 8; d++) {
                     DayViewModels[d, 24].Value = 0; // clear sum
 
@@ -47,10 +47,21 @@ namespace Gitoza.ViewModels
                             DayViewModels[7, h].Value += _values[d, h];
                             dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
                         }
-                        else
-                            dayViewModel.Percent = 0;
+                        //else
+                        //    dayViewModel.Percent = 0.0;
                     }
+                    maxSumD = Math.Max(maxSumD, DayViewModels[d, 24].Value);
                 }
+
+                for(int d = 0; d < 7; d++)
+                    DayViewModels[d, 24].Percent = maxSumD != 0 ? (double)DayViewModels[d, 24].Value / maxSumD : 0.0;
+
+                for (int h = 0; h < 24; h++)
+                    maxSumH = Math.Max(maxSumH, DayViewModels[7, h].Value);
+
+                for (int h = 0; h < 24; h++)
+                    DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
+
                 Properties.Settings.Default.LocalRepoPath = Path;
                 Properties.Settings.Default.Save();
             }

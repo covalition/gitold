@@ -15,20 +15,22 @@
     </UserControl.Resources>
 
     <Grid x:Name="grid" Background="AliceBlue">
-        <Ellipse ToolTip="{Binding Value}" Fill="Black" Stretch="None"><!--HorizontalAlignment="Center" VerticalAlignment="Center"--><!----> 
+        <Ellipse ToolTip="{Binding Value}" Fill="Black" Stretch="Uniform"><!--HorizontalAlignment="Center" VerticalAlignment="Center"--><!----> 
             <Ellipse.Width>
-                15
-                <!--<MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
+                <!--15-->
+                <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>
                     <Binding ElementName="grid" Path="ActualWidth" Mode="OneWay"/>
-                </MultiBinding>-->
+                    <Binding ElementName="grid" Path="ActualHeight" Mode="OneWay"/>
+            </MultiBinding>
             </Ellipse.Width>
             <Ellipse.Height>
-                15
-                <!--<MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
+                <!--15-->
+                <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>
                     <Binding ElementName="grid" Path="ActualHeight" Mode="OneWay"/>
-                </MultiBinding>-->
+                    <Binding ElementName="grid" Path="ActualWidth" Mode="OneWay"/>
+                </MultiBinding>
             </Ellipse.Height>
         </Ellipse>
         <!--<TextBlock Background="BlueViolet">
