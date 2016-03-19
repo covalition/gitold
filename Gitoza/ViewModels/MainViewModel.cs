@@ -32,35 +32,35 @@ namespace Gitoza.ViewModels
                 int[,] _values = DomainFacade.GetCommitCounts(Path);
                 int max = _values.Cast<int>().Max();
 
-                for (int d = 0; d < 8; d++)
+                for (int d = 0; d < 8; d++) {
+                    DayViewModels[d, 24].Value = 0; // clear sum
+
                     for (int h = 0; h < 25; h++) {
+                        if (d == 0)
+                            DayViewModels[7, h].Value = 0; // clear sum
+
                         DayViewModel dayViewModel = DayViewModels[d, h];
 
-                        if (d < 7 || h < 24) { // excluding h = 24 and d = 7
-                            int v;
-                            if (d == 7) {
-                                v = 0;
-                            }
-                            else
-                            if (h == 24) {
-                                v = 0;
-                            }
-                            else
-                                v = _values[d, h];
-                            dayViewModel.Value = v;
-                            dayViewModel.Percent = max != 0 ? v / max : 0.0;
+                        if (d < 7 && h < 24) {
+                            dayViewModel.Value = _values[d, h];
+                            DayViewModels[d, 24].Value += _values[d, h];
+                            DayViewModels[7, h].Value += _values[d, h];
                         }
+                        dayViewModel.Percent = max != 0 ? dayViewModel.Value / max : 0.0;
                     }
-
-                //int[] diameters = new int[7 * 24];
-                //for (int x = 0; x < 7 * 24; x++)
-                //    diameters[x] = (int)(((double)_values[x] / max) * 20); // http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value
-                //Diameters = diameters;
-
-
+                    // dayViewModel.Value = v;
+                    
+                }
                 Properties.Settings.Default.LocalRepoPath = Path;
                 Properties.Settings.Default.Save();
             }
+
+            //int[] diameters = new int[7 * 24];
+            //for (int x = 0; x < 7 * 24; x++)
+            //    diameters[x] = (int)(((double)_values[x] / max) * 20); // http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value
+            //Diameters = diameters;
+
+
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
