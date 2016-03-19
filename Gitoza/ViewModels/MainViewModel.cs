@@ -13,6 +13,10 @@ namespace Gitoza.ViewModels
 
     public class MainViewModel : ViewModelBase
     {
+        public MainViewModel() {
+            Path = Properties.Settings.Default.LocalRepoPath;
+        }
+
         #region Refresh command
 
         private RelayCommand _refresh;
@@ -33,6 +37,8 @@ namespace Gitoza.ViewModels
                         diameters[x] = (int)(((double)_values[x] / max) * 20); // http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value
                     Diameters = diameters;
                 }
+                Properties.Settings.Default.LocalRepoPath = Path;
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
