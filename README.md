@@ -5,4 +5,4 @@ Creates the punch card for your local git repository:
 
 ## Installer
 
-[Click here](https://rawgithub.com/romanoza/LocalRepoPunchCard/master/setup/setup.exe) to run the ClickOnce installer with the latest version.
+[Click here](https://rawgithub.com/romanoza/Gitoza/master/setup/setup.exe) to run the ClickOnce installer with the latest version.
