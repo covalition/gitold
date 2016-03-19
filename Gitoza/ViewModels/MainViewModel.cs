@@ -7,8 +7,10 @@ using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
-namespace Gitoza
+namespace Gitoza.ViewModels
 {
+    using BusinessLogic;
+
     public class MainViewModel : ViewModelBase
     {
         #region Refresh command

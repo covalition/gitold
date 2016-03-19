@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gitoza
+namespace Gitoza.BusinessLogic
 {
     // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
     public class GitCommit

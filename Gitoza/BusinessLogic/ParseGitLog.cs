@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Gitoza
+namespace Gitoza.BusinessLogic
 {
-    // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
+    // based on: http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
     public class ParseGitLog
     {
         private bool startsWithHeader(string line) {
