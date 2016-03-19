@@ -36,10 +36,14 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
+            
+            <!--All hours-->
+            <ColumnDefinition Width="Auto" /> 
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -56,5 +60,6 @@
         <TextBlock Grid.Row="5" Text="Thu" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="6" Text="Fri" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="7" Text="Sat" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="8" Text="All Days" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

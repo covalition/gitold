@@ -76,6 +76,10 @@
     <Compile Include="BusinessLogic\DomainFacade.cs" />
     <Compile Include="BusinessLogic\GitCommit.cs" />
     <Compile Include="BusinessLogic\GitFileStatus.cs" />
+    <Compile Include="UserControls\Day.xaml.cs">
+      <DependentUpon>Day.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DayViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="BusinessLogic\ParseGitLog.cs" />
     <Compile Include="PercentageConverter.cs" />
@@ -94,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Day.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Week.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

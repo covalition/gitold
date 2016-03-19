@@ -45,7 +45,7 @@ namespace Gitoza.BusinessLogic
                 MessageBox.Show(e.Data);
         }
 
-        public static int[] GetCommitCounts(string repoPath) {
+        public static int[,] GetCommitCounts(string repoPath) {
             if (string.IsNullOrEmpty(repoPath))
                 throw new Exception("The path is not set.");
 
@@ -58,9 +58,9 @@ namespace Gitoza.BusinessLogic
                 .GroupBy(d => new { d.DayOfWeek, d.Hour })
                 .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
             
-            int[] res = new int[7 * 24];
+            int[,] res = new int[7, 24];
             foreach (var c in counts)
-                res[(int)c.DayOfWeek * 24 + c.Hour] = c.Count;
+                res[(int)c.DayOfWeek, c.Hour] = c.Count;
             return res;
         }
     }
