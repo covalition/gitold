@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -47,8 +44,6 @@ namespace Gitoza.ViewModels
                             DayViewModels[7, h].Value += _values[d, h];
                             dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
                         }
-                        //else
-                        //    dayViewModel.Percent = 0.0;
                     }
                     maxSumD = Math.Max(maxSumD, DayViewModels[d, 24].Value);
                 }
@@ -65,13 +60,6 @@ namespace Gitoza.ViewModels
                 Properties.Settings.Default.LocalRepoPath = Path;
                 Properties.Settings.Default.Save();
             }
-
-            //int[] diameters = new int[7 * 24];
-            //for (int x = 0; x < 7 * 24; x++)
-            //    diameters[x] = (int)(((double)_values[x] / max) * 20); // http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value
-            //Diameters = diameters;
-
-
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }

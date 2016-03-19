@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-//using static System.Convert;
 
 namespace Gitoza
 {
@@ -15,7 +14,6 @@ namespace Gitoza
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture) {
             if (values == null || values.Length != 3)
                 return null;
-            // Debug.WriteLine(ToDouble(values[0]) * ToDouble(values[1]));
             return (double)values[0] * Math.Min((double)values[1], (double)values[2]);
         }
 

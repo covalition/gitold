@@ -10,14 +10,12 @@
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance Type={x:Type ViewModels:DayViewModel}}">
 
     <UserControl.Resources>
-        <Gitoza:PercentageConverter x:Key="PercentageConverter"/>
         <Gitoza:MultiplicationConverter x:Key="MultiplicationConverter"/>
     </UserControl.Resources>
 
-    <Grid x:Name="grid" Background="AliceBlue">
-        <Ellipse ToolTip="{Binding Value}" Fill="Black" Stretch="Uniform"><!--HorizontalAlignment="Center" VerticalAlignment="Center"--><!----> 
+    <Grid x:Name="grid">
+        <Ellipse ToolTip="{Binding Value}" Fill="Black" Stretch="Uniform">
             <Ellipse.Width>
-                <!--15-->
                 <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>
                     <Binding ElementName="grid" Path="ActualWidth" Mode="OneWay"/>
@@ -25,7 +23,6 @@
             </MultiBinding>
             </Ellipse.Width>
             <Ellipse.Height>
-                <!--15-->
                 <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>
                     <Binding ElementName="grid" Path="ActualHeight" Mode="OneWay"/>
@@ -33,13 +30,5 @@
                 </MultiBinding>
             </Ellipse.Height>
         </Ellipse>
-        <!--<TextBlock Background="BlueViolet">
-            <TextBlock.Text>
-                <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
-                    <Binding Path="ActualHeight" ElementName="grid" Mode="OneWay" />
-                    <Binding Path="Percent" Mode="OneWay"/>
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>--> <!--Text="{Binding ActualHeight, ElementName=grid, Mode=OneWay}"-->
     </Grid>
 </UserControl>

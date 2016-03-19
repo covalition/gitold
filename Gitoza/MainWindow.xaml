@@ -23,7 +23,7 @@
             <TextBox Margin="10,0" Grid.Column="1" Text="{Binding Path=Path}"></TextBox>
             <Button Grid.Column="2" Command="{Binding Refresh}">Refresh</Button>
         </Grid>
-        <Grid Grid.Row="1" Background="Brown">
+        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
             <UserControls:Week />
         </Grid>
     </Grid>

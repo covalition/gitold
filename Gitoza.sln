@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitoza", "Gitoza\Gitoza.csproj", "{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{BD8365E8-9B2D-419A-BC17-E2F147F9258F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD8365E8-9B2D-419A-BC17-E2F147F9258F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD8365E8-9B2D-419A-BC17-E2F147F9258F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD8365E8-9B2D-419A-BC17-E2F147F9258F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD8365E8-9B2D-419A-BC17-E2F147F9258F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -83,7 +83,6 @@
     <Compile Include="ViewModels\DayViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="BusinessLogic\ParseGitLog.cs" />
-    <Compile Include="PercentageConverter.cs" />
     <Compile Include="UserControls\Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
     </Compile>
