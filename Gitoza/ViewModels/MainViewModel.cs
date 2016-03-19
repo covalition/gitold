@@ -45,9 +45,10 @@ namespace Gitoza.ViewModels
                             dayViewModel.Value = _values[d, h];
                             DayViewModels[d, 24].Value += _values[d, h];
                             DayViewModels[7, h].Value += _values[d, h];
+                            dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
                         }
-                        // dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
-                        dayViewModel.Percent = 0.5;
+                        else
+                            dayViewModel.Percent = 0;
                     }
                 }
                 Properties.Settings.Default.LocalRepoPath = Path;

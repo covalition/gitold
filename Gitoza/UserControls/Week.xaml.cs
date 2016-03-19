@@ -37,6 +37,7 @@ namespace Gitoza.UserControls
 
                 for (int d = 0; d < 8; d++) {
                     //Ellipse e = new Ellipse();
+                    //e.Stretch = Stretch.None;
                     //e.SetValue(Grid.RowProperty, j + 1);
                     //e.SetValue(Grid.ColumnProperty, i + 1);
                     //Binding binding = new Binding(string.Format("Diameters[{0}]", j * 24 + i));
