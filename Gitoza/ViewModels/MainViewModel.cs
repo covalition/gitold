@@ -46,10 +46,9 @@ namespace Gitoza.ViewModels
                             DayViewModels[d, 24].Value += _values[d, h];
                             DayViewModels[7, h].Value += _values[d, h];
                         }
-                        dayViewModel.Percent = max != 0 ? dayViewModel.Value / max : 0.0;
+                        // dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
+                        dayViewModel.Percent = 0.5;
                     }
-                    // dayViewModel.Value = v;
-                    
                 }
                 Properties.Settings.Default.LocalRepoPath = Path;
                 Properties.Settings.Default.Save();
@@ -86,20 +85,6 @@ namespace Gitoza.ViewModels
             }
         }
 
-        private int[] _diameters;
-
-        public int[] Diameters {
-            get {
-                return _diameters;
-            }
-            set {
-                if (value != _diameters) {
-                    _diameters = value;
-                    RaisePropertyChanged(() => Diameters);
-                }
-            }
-        }
-
         DayViewModel[,] _dayViewModels;
 
         public DayViewModel[,] DayViewModels {
@@ -114,32 +99,5 @@ namespace Gitoza.ViewModels
                 return _dayViewModels;
             }
         }
-
-        ///// <param name="day">0..6, or 7 = all days</param>
-        ///// <param name="hour">0..23, or 24 = all hours</param>
-        ///// <returns></returns>
-        //internal DayViewModel GetDayViewModel(int day, int hour) {
-        //    return getDayViewModels()[day, hour];
-        //}
-
-        //DayViewModel[,] dayViewModels;
-
-        //private DayViewModel[,] getDayViewModels() {
-        //    throw new Exception();
-        //}
-
-        //private int[] _values;
-
-        //public int[] Values {
-        //    get {
-        //        return _values;
-        //    }
-        //    set {
-        //        if (value != _values) {
-        //            _values = value;
-        //            RaisePropertyChanged(() => Values);
-        //        }
-        //    }
-        //}
     }
 }
