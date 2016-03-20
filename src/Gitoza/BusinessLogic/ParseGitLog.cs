@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Gitoza.BusinessLogic
 {
@@ -11,19 +12,19 @@ namespace Gitoza.BusinessLogic
     {
         private bool startsWithHeader(string line) {
             if (line.Length > 0 && char.IsLetter(line[0])) {
-                var seq = line.SkipWhile(ch => Char.IsLetter(ch) && ch != ':');
+                var seq = line.SkipWhile(ch => char.IsLetter(ch) && ch != ':');
                 return seq.FirstOrDefault() == ':';
             }
             return false;
         }
 
-        public List<GitCommit> Parse(string output) {
+        public async Task<List<GitCommit>> Parse(string output) {
             GitCommit commit = null;
-            var commits = new List<GitCommit>();
+            List<GitCommit> commits = new List<GitCommit>();
             bool processingMessage = false;
-            using (var strReader = new StringReader(output)) {
+            using (StringReader strReader = new StringReader(output)) {
                 do {
-                    var line = strReader.ReadLine();
+                    string line = await strReader.ReadLineAsync();
 
                     if (line.StartsWith("commit ")) {
                         if (commit != null)

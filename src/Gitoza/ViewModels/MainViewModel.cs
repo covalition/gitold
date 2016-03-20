@@ -24,9 +24,24 @@ namespace Gitoza.ViewModels
             }
         }
 
-        private void refreshAction() {
+        bool _refreshing = false;
+
+        public bool Refreshing {
+            get {
+                return _refreshing;
+            }
+            set {
+                if (value != _refreshing) {
+                    _refreshing = value;
+                    Refresh.RaiseCanExecuteChanged();
+                }
+            }
+        }
+
+        private async void refreshAction() {
+            Refreshing = true;
             try {
-                int[,] _values = DomainFacade.GetCommitCounts(Path);
+                int[,] _values = await DomainFacade.GetCommitCounts(Path);
                 int max = _values.Cast<int>().Max();
                 int maxSumH = 0, maxSumD = 0;
                 for (int d = 0; d < 8; d++) {
@@ -63,10 +78,13 @@ namespace Gitoza.ViewModels
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+            finally {
+                Refreshing = false;
+            }
         }
 
         private bool refreshCanExecute() {
-            return true;
+            return !_refreshing;
         }
 
         #endregion
@@ -99,5 +117,6 @@ namespace Gitoza.ViewModels
                 return _dayViewModels;
             }
         }
+        
     }
 }

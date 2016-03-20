@@ -1,4 +1,6 @@
-# LocalRepoPunchCard
+# Gitoza
+## Local Repo Punch Card
+
 Creates the punch card for your local git repository:
 
 ![Screen](doc/img/screen.png)
