@@ -1,4 +1,4 @@
-# LocalRepoPunchCard
+# Local Repo Punch Card
 Creates the punch card for your local git repository:
 
 ![Screen](img/screen.png)
@@ -6,3 +6,5 @@ Creates the punch card for your local git repository:
 ## Installer
 
 [Click here](https://rawgithub.com/romanoza/LocalRepoPunchCard/master/Gitoza/publish/setup.exe) to run the ClickOnce installer with the latest version.
+
+More features soon (or later).
