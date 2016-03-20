@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:Gitoza"
         xmlns:UserControls="clr-namespace:Gitoza.UserControls"
         xmlns:ViewModels="clr-namespace:Gitoza.ViewModels"
-        Title="Gitoza" Height="350" Width="525">
+        Title="Gitoza" Height="282.067" Width="669.726">
     <Window.DataContext>
         <ViewModels:MainViewModel />
     </Window.DataContext>
@@ -19,11 +19,11 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Label>Project local folder:</Label>
-            <TextBox Margin="10,0" Grid.Column="1" Text="{Binding Path=Path}"></TextBox>
-            <Button Grid.Column="2" Command="{Binding Refresh}">Refresh</Button>
+            <Label VerticalContentAlignment="Center">Project local folder:</Label>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>
+            <Button Grid.Column="2" Command="{Binding Refresh}" Margin="5">Refresh</Button>
         </Grid>
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" Margin="2">
             <TabItem Header="Local Repo Punch Card">
                 <UserControls:Week />
             </TabItem>

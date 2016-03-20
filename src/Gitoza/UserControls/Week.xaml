@@ -53,13 +53,13 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="1" Text="Sun" VerticalAlignment="Center" />
-        <TextBlock Grid.Row="2" Text="Mon" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="3" Text="Tue" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="4" Text="Wed" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="5" Text="Thu" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="6" Text="Fri" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="7" Text="Sat" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="8" Text="All Days" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="Sun" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="2" Text="Mon" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="3" Text="Tue" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="4" Text="Wed" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="5" Text="Thu" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="6" Text="Fri" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="7" Text="Sat" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="8" Text="All Days" VerticalAlignment="Center" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

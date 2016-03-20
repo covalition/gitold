@@ -111,8 +111,11 @@ namespace Gitoza.ViewModels
                     _dayViewModels = new DayViewModel[8, 25];
                     // initialize the array
                     for (int d = 0; d < 8; d++)
-                        for (int h = 0; h < 25; h++)
+                        for (int h = 0; h < 25; h++) {
                             _dayViewModels[d, h] = new DayViewModel();
+                            if (d == 7 || h == 24)
+                                _dayViewModels[d, h].IsSummary = true;
+                        }
                 }
                 return _dayViewModels;
             }

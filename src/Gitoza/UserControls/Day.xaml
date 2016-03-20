@@ -10,11 +10,12 @@
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance Type={x:Type ViewModels:DayViewModel}}">
 
     <UserControl.Resources>
+        <Gitoza:SummaryToBrushConverter x:Key="SummaryToBrushConverter"/>
         <Gitoza:MultiplicationConverter x:Key="MultiplicationConverter"/>
     </UserControl.Resources>
 
     <Grid x:Name="grid">
-        <Ellipse ToolTip="{Binding Value}" Fill="Black" Stretch="Uniform">
+        <Ellipse ToolTip="{Binding Value}" Fill="{Binding IsSummary, Converter={StaticResource SummaryToBrushConverter}}" Stretch="Uniform">
             <Ellipse.Width>
                 <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>

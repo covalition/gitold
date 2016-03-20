@@ -33,5 +33,20 @@ namespace Gitoza.ViewModels
                 }
             }
         }
+
+        private bool _isSummary;
+
+        public bool IsSummary {
+            get {
+                return _isSummary;
+            }
+            set {
+                if (value != _isSummary) {
+                    _isSummary = value;
+                    RaisePropertyChanged(() => IsSummary);
+                }
+            }
+        }
+        
     }
 }
