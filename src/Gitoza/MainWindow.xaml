@@ -9,21 +9,60 @@
         <ViewModels:MainViewModel />
     </Window.DataContext>
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Label VerticalContentAlignment="Center">Project local folder:</Label>
-            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>
-            <Button Grid.Column="2" Command="{Binding Refresh}" Margin="5">Refresh</Button>
+        </Grid.RowDefinitions>-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="Local Repo Paths" />
+            <ListBox Grid.Row="1">
+                <ListBoxItem Content="Folder 1" />
+                <ListBoxItem Content="Folder 2" />
+                <ListBoxItem Content="Folder 3" />
+                <ListBoxItem Content="Folder 4" />
+            </ListBox>
+            <Button Grid.Row="2" Margin="5">Edit Path List</Button>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="From"></Label>
+                <DatePicker Grid.Column="1" />
+                <Label Content="To" Grid.Row="1"></Label>
+                <DatePicker Grid.Column="1" Grid.Row="1" />
+            </Grid>
+            <ComboBox SelectedIndex="0" Grid.Row="4">
+                <ComboBoxItem Content="Stefan" />
+                <ComboBoxItem Content="Roman" />
+            </ComboBox>
+            <!--<StackPanel Grid.Row="3" Orientation="Horizontal">
+                
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                
+            </StackPanel>-->
+            <!--<Label VerticalContentAlignment="Center">Project local folder:</Label>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
+            <Button Grid.Row="5" Command="{Binding Refresh}" Margin="5">Refresh</Button>
         </Grid>
-        <TabControl Grid.Row="1" Margin="2">
+        <TabControl Grid.Column="1" Margin="2">
             <TabItem Header="Local Repo Punch Card">
                 <UserControls:Week />
             </TabItem>
