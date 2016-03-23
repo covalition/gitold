@@ -10,23 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Gitoza
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DlgEditFilePaths.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DlgEditFilePaths : Window
     {
-        public MainWindow() {
+        public DlgEditFilePaths() {
             InitializeComponent();
-        }
-
-        private void btnEditPathList_Click(object sender, RoutedEventArgs e) {
-            DlgEditFilePaths dlg = new DlgEditFilePaths();
-            dlg.ShowDialog();
         }
     }
 }

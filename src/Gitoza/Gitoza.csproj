@@ -129,6 +129,9 @@
     <Compile Include="BusinessLogic\DomainFacade.cs" />
     <Compile Include="BusinessLogic\GitCommit.cs" />
     <Compile Include="BusinessLogic\GitFileStatus.cs" />
+    <Compile Include="DlgEditFilePaths.xaml.cs">
+      <DependentUpon>DlgEditFilePaths.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultiplicationConverter.cs" />
     <Compile Include="SummaryToBrushConverter.cs" />
     <Compile Include="UserControls\Day.xaml.cs">
@@ -143,6 +146,10 @@
     <Compile Include="UserControls\Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
     </Compile>
+    <Page Include="DlgEditFilePaths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
