@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Gitoza.UserControls.EditLocalPaths"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gitoza.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="196.203" d:DesignWidth="291.139" Background="WhiteSmoke">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBox></TextBox>
+        <Button Content="Add / Update" Grid.Column="1" />
+        <ListBox Grid.Row="1">
+            <ListBoxItem Content="Folder 1" />
+            <ListBoxItem Content="Folder 2" />
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button Content="Edit" />
+            <Button Content="Delete" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Content="Cancel" />
+            <Button Content="OK" />
+        </StackPanel>
+    </Grid>
+</UserControl>
