@@ -4,6 +4,8 @@
         xmlns:local="clr-namespace:Gitoza"
         xmlns:UserControls="clr-namespace:Gitoza.UserControls"
         xmlns:ViewModels="clr-namespace:Gitoza.ViewModels"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="Gitoza" Height="282.067" Width="669.726">
     <Window.DataContext>
         <ViewModels:MainViewModel />
@@ -11,12 +13,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>-->
+        
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -27,12 +27,13 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Content="Local Repo Paths" />
-            <ListBox Grid.Row="1">
-                <ListBoxItem Content="Folder 1" />
-                <ListBoxItem Content="Folder 2" />
-                <ListBoxItem Content="Folder 3" />
-                <ListBoxItem Content="Folder 4" />
-            </ListBox>
+            <xctk:CheckListBox Grid.Row="1">
+                <sys:String>Folder 1</sys:String>
+                <sys:String>Folder 2</sys:String>
+                <sys:String>Folder 3</sys:String>
+                <sys:String>Folder 4</sys:String>
+            </xctk:CheckListBox>
+            
             <Button Grid.Row="2" Margin="5">Edit Path List</Button>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -42,33 +43,30 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Content="From"></Label>
-                <DatePicker Grid.Column="1" />
-                <Label Content="To" Grid.Row="1"></Label>
-                <DatePicker Grid.Column="1" Grid.Row="1" />
+                <CheckBox Grid.Column="1" Content="All Dates" />
+                <Label Grid.Row="1" Content="From"></Label>
+                <DatePicker Grid.Row="1" Grid.Column="1" />
+                <Label Content="To" Grid.Row="2"></Label>
+                <DatePicker Grid.Column="1" Grid.Row="2" />
             </Grid>
             <ComboBox SelectedIndex="0" Grid.Row="4">
+                <ComboBoxItem Content="[All Authors]" />
                 <ComboBoxItem Content="Stefan" />
                 <ComboBoxItem Content="Roman" />
             </ComboBox>
-            <!--<StackPanel Grid.Row="3" Orientation="Horizontal">
-                
-            </StackPanel>
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                
-            </StackPanel>-->
+        
             <!--<Label VerticalContentAlignment="Center">Project local folder:</Label>
             <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
             <Button Grid.Row="5" Command="{Binding Refresh}" Margin="5">Refresh</Button>
         </Grid>
-        <TabControl Grid.Column="1" Margin="2">
+        <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" />
+        <TabControl Grid.Column="2" Margin="2">
             <TabItem Header="Local Repo Punch Card">
                 <UserControls:Week />
             </TabItem>
         </TabControl>
-        <!--<Grid  Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-            
-        </Grid>-->
+        
     </Grid>
 </Window>
