@@ -13,20 +13,27 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBox></TextBox>
-        <Button Content="Add / Update" Grid.Column="1" />
-        <ListBox Grid.Row="1">
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Save" />
+            <Button Content="Cancel" />
+            <Button Content="Select Folder..." />
+        </StackPanel>
+        
+        <ListBox Grid.Row="2">
             <ListBoxItem Content="Folder 1" />
             <ListBoxItem Content="Folder 2" />
         </ListBox>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Button Content="New" />
             <Button Content="Edit" />
             <Button Content="Delete" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
             <Button Content="Cancel" />
             <Button Content="OK" />
         </StackPanel>
