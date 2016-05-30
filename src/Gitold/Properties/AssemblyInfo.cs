@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Gitold.Covalition")]
-[assembly: AssemblyDescription("Local Repo Analyzer")]
+[assembly: AssemblyDescription("Local Git Repos Analyzer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Covalition")]
 [assembly: AssemblyProduct("Gitold.Covalition")]
