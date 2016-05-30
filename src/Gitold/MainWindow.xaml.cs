@@ -23,10 +23,5 @@ namespace Gitold
         public MainWindow() {
             InitializeComponent();
         }
-
-        private void btnEditPathList_Click(object sender, RoutedEventArgs e) {
-            DlgEditFilePaths dlg = new DlgEditFilePaths();
-            dlg.ShowDialog();
-        }
     }
 }
