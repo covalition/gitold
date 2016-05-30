@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 
-namespace Gitoza.ViewModels
+namespace Gitold.ViewModels
 {
     public class DayViewModel: ViewModelBase
     {

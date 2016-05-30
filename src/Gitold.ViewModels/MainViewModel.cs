@@ -4,14 +4,14 @@ using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
-namespace Gitoza.ViewModels
+namespace Gitold.ViewModels
 {
-    using BusinessLogic;
-
+    using Application;
+    using GalaSoft.MvvmLight.Messaging;
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel() {
-            Path = Gitold.Properties.Settings.Default.LocalRepoPath;
+            Path = Properties.Settings.Default.LocalRepoPath;
         }
 
         #region Refresh command
@@ -72,11 +72,12 @@ namespace Gitoza.ViewModels
                 for (int h = 0; h < 24; h++)
                     DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
 
-                Gitold.Properties.Settings.Default.LocalRepoPath = Path;
-                Gitold.Properties.Settings.Default.Save();
+                Properties.Settings.Default.LocalRepoPath = Path;
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                // MessageBox.Show(ex.Message);
+                Messenger.Default.Send(new RepoExceptionMessage(ex));
             }
             finally {
                 Refreshing = false;
