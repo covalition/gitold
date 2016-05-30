@@ -23,5 +23,21 @@ namespace Gitold
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e) {
+            Close();
+        }
+
+        private void btnRestore_Click(object sender, RoutedEventArgs e) {
+            WindowState = WindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e) {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e) {
+            WindowState = WindowState.Maximized;
+        }
     }
 }

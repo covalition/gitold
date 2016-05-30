@@ -22,18 +22,39 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Margin="12,12,12,10" BorderThickness="0,0,0,1" BorderBrush="{StaticResource AccentColorBrush4}">
-            <DockPanel >
-                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource GrayBrush8}" FontSize="30">Gitold</TextBlock>
-                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource AccentColorBrush3}" FontSize="30">Covalition</TextBlock>
+        <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{StaticResource AccentColorBrush4}">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource GrayBrush8}" FontSize="20">Gitold</TextBlock>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource AccentColorBrush3}" FontSize="20">Covalition</TextBlock>
 
                 <!--Buttons: minimize, maximize, restore, close-->
                 <DockPanel DockPanel.Dock="Right">
-                    <StackPanel  Width="50" HorizontalAlignment="Right">
-                        <Button Height="20" Width="20" Style="{DynamicResource MetroCircleButtonStyle}">
-                            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#FFCB2D2D" Opacity="0.5" Stroke="Black">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMinimize" Click="btnMinimize_Click">
+                            <Rectangle Fill="{StaticResource AccentColorBrush}" Height="12" Width="12">
                                 <Rectangle.OpacityMask>
-                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_axis_three}" />
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_minimize}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnRestore" Click="btnRestore_Click">
+                            <Rectangle Fill="{StaticResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_restore}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMaximize" Click="btnMaximize_Click">
+                            <Rectangle Fill="{StaticResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_maximize}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnClose" Click="btnClose_Click">
+                            <Rectangle Fill="{StaticResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_close}" />
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
@@ -47,7 +68,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="180"/>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition />
+                        <ColumnDefinition MinWidth="180"/>
                     </Grid.ColumnDefinitions>
                     
                     <!--Chart options-->
@@ -93,7 +114,7 @@
             <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
                         <Button Grid.Row="4" Command="{Binding Refresh}" Margin="5,0,5,5">Refresh</Button>
                     </Grid>
-                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{StaticResource GrayBrush7}"/>
+                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{StaticResource AccentColorBrush4}"/>
                     <TabControl Grid.Column="2" Margin="2">
                         <TabItem Header="Punch Card">
                             <UserControls:Week />
