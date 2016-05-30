@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gitoza.Properties {
+namespace Gitold.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

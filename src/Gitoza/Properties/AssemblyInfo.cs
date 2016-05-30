@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gitoza")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Gitold.Covalition")]
+[assembly: AssemblyDescription("Local Repo Analyzer")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gitoza")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCompany("Covalition")]
+[assembly: AssemblyProduct("Gitold.Covalition")]
+[assembly: AssemblyCopyright("Copyright © 2015 - 2016 Covalition")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
