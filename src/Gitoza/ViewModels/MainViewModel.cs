@@ -11,7 +11,7 @@ namespace Gitoza.ViewModels
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel() {
-            Path = Properties.Settings.Default.LocalRepoPath;
+            Path = Gitold.Properties.Settings.Default.LocalRepoPath;
         }
 
         #region Refresh command
@@ -72,8 +72,8 @@ namespace Gitoza.ViewModels
                 for (int h = 0; h < 24; h++)
                     DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
 
-                Properties.Settings.Default.LocalRepoPath = Path;
-                Properties.Settings.Default.Save();
+                Gitold.Properties.Settings.Default.LocalRepoPath = Path;
+                Gitold.Properties.Settings.Default.Save();
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

@@ -24,7 +24,7 @@ namespace Gitoza.BusinessLogic
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;
 
-            string gitExecutable = Properties.Settings.Default.GitExecutable;
+            string gitExecutable = Gitold.Properties.Settings.Default.GitExecutable;
             if (!File.Exists(gitExecutable))
                 throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
             p.StartInfo.FileName = gitExecutable;
