@@ -6,8 +6,19 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="BlackBrush" Color="Black"/>
+                    <!--<Color x:Key="BlackColor">#FF000000</Color>
+                    <Color x:Key="WhiteColor">#FFFFFFFF</Color>-->
+                    <!--<SolidColorBrush x:Key="BlackBrush" Color="Black"/>-->
                 </ResourceDictionary>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <!-- Themes: https://github.com/MahApps/MahApps.Metro/tree/develop/MahApps.Metro/Styles/Accents -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <!-- Icons -->
                 <ResourceDictionary Source="/Resources/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
