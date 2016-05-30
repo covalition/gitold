@@ -11,6 +11,9 @@
         <ViewModels:MainViewModel />
     </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
