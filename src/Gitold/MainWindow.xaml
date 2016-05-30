@@ -45,11 +45,13 @@
             <TabItem Header="Charts">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" MinWidth="180"/>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
+                    
+                    <!--Chart options-->
+                    <Grid Grid.Column="0" Background="{StaticResource GrayBrush8}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
@@ -57,13 +59,13 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Label Content="Local Repo Paths" />
-                        <xctk:CheckListBox Grid.Row="1" Margin="5,0,5,5">
-                            <sys:String>Folder 1</sys:String>
-                            <sys:String>Folder 2</sys:String>
-                            <sys:String>Folder 3</sys:String>
-                            <sys:String>Folder 4</sys:String>
-                        </xctk:CheckListBox>
+                        <TextBlock Text="Local Repo Paths:" Margin="5"/>
+                        <ListBox Grid.Row="1" Margin="5,0,5,5" SelectionMode="Multiple">
+                            <ListBoxItem>Folder 1</ListBoxItem>
+                            <ListBoxItem>Folder 2</ListBoxItem>
+                            <ListBoxItem>Folder 3</ListBoxItem>
+                            <ListBoxItem>Folder 4</ListBoxItem>
+                        </ListBox>
                         <!--<Button Grid.Row="2" Margin="5" x:Name="btnEditPathList" Click="btnEditPathList_Click">Edit Path List</Button>-->
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
@@ -91,7 +93,7 @@
             <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
                         <Button Grid.Row="4" Command="{Binding Refresh}" Margin="5,0,5,5">Refresh</Button>
                     </Grid>
-                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" />
+                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{StaticResource GrayBrush7}"/>
                     <TabControl Grid.Column="2" Margin="2">
                         <TabItem Header="Punch Card">
                             <UserControls:Week />
