@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Gitoza
+namespace Gitold
 {
     public class MultiplicationConverter : IMultiValueConverter
     {

@@ -1,9 +1,9 @@
-﻿<Window xmlns:UserControls="clr-namespace:Gitoza.UserControls"  x:Class="Gitoza.DlgEditFilePaths"
+﻿<Window xmlns:UserControls="clr-namespace:Gitold.UserControls"  x:Class="Gitold.DlgEditFilePaths"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Gitoza"
+        xmlns:local="clr-namespace:Gitold"
         mc:Ignorable="d"
         Title="Edit File Paths" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid>

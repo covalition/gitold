@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Gitoza
+namespace Gitold
 {
     class SummaryToBrushConverter : IValueConverter
     {

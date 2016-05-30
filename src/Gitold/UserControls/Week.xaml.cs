@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Gitoza.UserControls
+namespace Gitold.UserControls
 {
     /// <summary>
     /// Interaction logic for Week.xaml
