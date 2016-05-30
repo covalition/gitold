@@ -6,75 +6,89 @@
         xmlns:ViewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="Gitoza" Height="282.067" Width="669.726">
+        Title="Gitold.Covalition" Height="282.067" Width="669.726" Background="#FF1A4C82" WindowStyle="None" WindowState="Maximized">
     <Window.DataContext>
         <ViewModels:MainViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+        <StackPanel Margin="15,12,0,12" Orientation="Horizontal">
+            <TextBlock  FontWeight="SemiBold" Foreground="#FFDCC21F" FontSize="30">Gitold</TextBlock>
+            <TextBlock  FontWeight="SemiBold" Foreground="#FFB4B4B4" FontSize="30">Covalition</TextBlock>
+        </StackPanel>
+        
+        <TabControl Grid.Row="1">
+            <TabItem Header="Charts">
 
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Content="Local Repo Paths" />
-                <xctk:CheckListBox Grid.Row="1">
-                    <sys:String>Folder 1</sys:String>
-                    <sys:String>Folder 2</sys:String>
-                    <sys:String>Folder 3</sys:String>
-                    <sys:String>Folder 4</sys:String>
-                </xctk:CheckListBox>
-
-                <Button Grid.Row="2" Margin="5" x:Name="btnEditPathList" Click="btnEditPathList_Click">Edit Path List</Button>
-                <Grid Grid.Row="3">
+                <Grid>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <CheckBox Grid.Column="1" Content="All Dates" />
-                    <Label Grid.Row="1" Content="From"></Label>
-                    <DatePicker Grid.Row="1" Grid.Column="1" />
-                    <Label Content="To" Grid.Row="2"></Label>
-                    <DatePicker Grid.Column="1" Grid.Row="2" />
-                </Grid>
-                <ComboBox SelectedIndex="0" Grid.Row="4">
-                    <ComboBoxItem Content="[All Authors]" />
-                    <ComboBoxItem Content="Stefan" />
-                    <ComboBoxItem Content="Roman" />
-                </ComboBox>
 
-                <!--<Label VerticalContentAlignment="Center">Project local folder:</Label>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Local Repo Paths" />
+                        <xctk:CheckListBox Grid.Row="1">
+                            <sys:String>Folder 1</sys:String>
+                            <sys:String>Folder 2</sys:String>
+                            <sys:String>Folder 3</sys:String>
+                            <sys:String>Folder 4</sys:String>
+                        </xctk:CheckListBox>
+
+                        <Button Grid.Row="2" Margin="5" x:Name="btnEditPathList" Click="btnEditPathList_Click">Edit Path List</Button>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <CheckBox Grid.Column="1" Content="All Dates" />
+                            <Label Grid.Row="1" Content="From"></Label>
+                            <DatePicker Grid.Row="1" Grid.Column="1" />
+                            <Label Content="To" Grid.Row="2"></Label>
+                            <DatePicker Grid.Column="1" Grid.Row="2" />
+                        </Grid>
+                        <ComboBox SelectedIndex="0" Grid.Row="4">
+                            <ComboBoxItem Content="[All Authors]" />
+                            <ComboBoxItem Content="Stefan" />
+                            <ComboBoxItem Content="Roman" />
+                        </ComboBox>
+
+                        <!--<Label VerticalContentAlignment="Center">Project local folder:</Label>
             <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
-                <Button Grid.Row="5" Command="{Binding Refresh}" Margin="5">Refresh</Button>
-            </Grid>
-            <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" />
-            <TabControl Grid.Column="2" Margin="2">
-                <TabItem Header="Punch Card">
-                    <UserControls:Week />
-                </TabItem>
-                <TabItem Header="All Days">
-                    <Label Content="Not implemented yet." />
-                </TabItem>
-            </TabControl>
+                        <Button Grid.Row="5" Command="{Binding Refresh}" Margin="5">Refresh</Button>
+                    </Grid>
+                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" />
+                    <TabControl Grid.Column="2" Margin="2">
+                        <TabItem Header="Punch Card">
+                            <UserControls:Week />
+                        </TabItem>
+                        <TabItem Header="All Days">
+                            <Label Content="Not implemented yet." />
+                        </TabItem>
+                    </TabControl>
 
-        </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
