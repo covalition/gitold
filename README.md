@@ -1,4 +1,4 @@
-# Gitold.Covalition #
+# Gitold.Covalition 1.2 #
 Local Git Repos Analyzer
 
 ## Project Description ##
