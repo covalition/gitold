@@ -8,6 +8,8 @@ namespace Igorary.Wpf
 {
     public class SwitchableDictionary : ResourceDictionary
     {
+        public string Name { get; set; }
+
         private List<NamedResourceSource> _sources = new List<NamedResourceSource>();
 
         public List<NamedResourceSource> Sources {

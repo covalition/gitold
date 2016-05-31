@@ -41,7 +41,7 @@ namespace Gitold
         }
 
         private void btnSetTheme_Click(object sender, RoutedEventArgs e) {
-
+            (Application.Current as App).SwitchTheme(cbTheme.SelectedValue as string);
         }
     }
 }

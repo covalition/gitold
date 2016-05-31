@@ -1,5 +1,5 @@
 ﻿<Application 
-    x:Class="Gitoza.App"
+    x:Class="Gitold.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:igorary="clr-namespace:Igorary.Wpf;assembly=Igorary.Wpf"
@@ -18,7 +18,7 @@
                 <!-- Accent and AppTheme setting -->
                 <!-- Themes: https://github.com/MahApps/MahApps.Metro/tree/develop/MahApps.Metro/Styles/Accents -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
-                <igorary:SwitchableDictionary x:Name="sdTheme" CurrentDictionaryName="Light Theme">
+                <igorary:SwitchableDictionary Name="Theme" CurrentDictionaryName="Light Theme">
                     <igorary:SwitchableDictionary.Sources>
                         <igorary:NamedResourceSource Name="Light Theme" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                         <igorary:NamedResourceSource Name="Dark Theme" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
