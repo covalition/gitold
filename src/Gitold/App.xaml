@@ -23,8 +23,12 @@
                         <igorary:NamedResourceSource Name="Brown" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Brown.xaml" />
                         <igorary:NamedResourceSource Name="Cobalt" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
                         <igorary:NamedResourceSource Name="Crimson" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Crimson.xaml" />
+                        <igorary:NamedResourceSource Name="Cyan" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cyan.xaml" />
+                        <igorary:NamedResourceSource Name="Emerald" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Emerald.xaml" />
+                        <igorary:NamedResourceSource Name="Green" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Green.xaml" />
                         <igorary:NamedResourceSource Name="Red" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
-                        
+                        <igorary:NamedResourceSource Name="Orange" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
+                        <igorary:NamedResourceSource Name="Yellow" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Yellow.xaml" />
                     </igorary:SwitchableDictionary.Sources>
                 </igorary:SwitchableDictionary>
                 
