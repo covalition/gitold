@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{StaticResource AccentColorBrush4}">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource GrayBrush8}" FontSize="20">Gitold</TextBlock>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource GrayBrush7}" FontSize="20">Gitold</TextBlock>
                 <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{StaticResource AccentColorBrush3}" FontSize="20">Covalition</TextBlock>
 
                 <!--Buttons: minimize, maximize, restore, close-->
@@ -115,7 +115,7 @@
                         <Button Grid.Row="4" Command="{Binding Refresh}" Margin="5,0,5,5">Refresh</Button>
                     </Grid>
                     <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{StaticResource AccentColorBrush4}"/>
-                    <TabControl Grid.Column="2" Margin="2">
+                    <TabControl Grid.Column="2" Margin="2,-2,2,2">
                         <TabItem Header="Punch Card">
                             <UserControls:Week />
                         </TabItem>
