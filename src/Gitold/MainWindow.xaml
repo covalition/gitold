@@ -139,14 +139,8 @@
                     </GroupBox>
                     <GroupBox Header="Theme" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
-                            <ComboBox SelectedIndex="0" x:Name="cbTheme">
-                                <!--<sys:String>Light Theme</sys:String>
-                                <sys:String>Dark Theme</sys:String>-->
-                            </ComboBox>
-                            <ComboBox Margin="5,0" SelectedIndex="0" x:Name="cbAccent">
-                                <!--<ComboBoxItem>Yellow</ComboBoxItem>
-                                <ComboBoxItem>Orange</ComboBoxItem>-->
-                            </ComboBox>
+                            <ComboBox SelectedIndex="0" x:Name="cbTheme" Width="115" />
+                            <ComboBox Margin="5,0" SelectedIndex="0" x:Name="cbAccent" Width="115" />
                             <Button x:Name="btnSetTheme" Click="btnSetTheme_Click">Set</Button>
                         </StackPanel>
                     </GroupBox>
