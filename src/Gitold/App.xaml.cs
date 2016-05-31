@@ -14,8 +14,8 @@ namespace Gitold
     /// </summary>
     public partial class App : Application
     {
-        public void SwitchTheme(string themeName) {
-            this.Resources.MergedDictionaries.OfType<SwitchableDictionary>().First(rd => rd.Name == "Theme").CurrentDictionaryName = themeName;
-        }
+        //public void SwitchTheme(string themeName) {
+        //    this.Resources.MergedDictionaries.OfType<SwitchableDictionary>().First(rd => rd.Name == "Theme").CurrentDictionaryName = themeName;
+        //}
     }
 }

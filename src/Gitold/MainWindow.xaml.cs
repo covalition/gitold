@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Igorary.Wpf;
 
 namespace Gitold
 {
@@ -22,6 +23,7 @@ namespace Gitold
     {
         public MainWindow() {
             InitializeComponent();
+            cbTheme.ItemsSource = (Application.Current as App).GetResourceNames("Theme");
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e) {
@@ -41,7 +43,7 @@ namespace Gitold
         }
 
         private void btnSetTheme_Click(object sender, RoutedEventArgs e) {
-            (Application.Current as App).SwitchTheme(cbTheme.SelectedValue as string);
+            (Application.Current as App).SwitchResources("Theme", cbTheme.SelectedValue as string);
         }
     }
 }

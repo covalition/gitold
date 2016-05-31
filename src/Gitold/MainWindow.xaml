@@ -140,8 +140,8 @@
                     <GroupBox Header="Theme" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
                             <ComboBox SelectedIndex="0" x:Name="cbTheme">
-                                <sys:String>Light Theme</sys:String>
-                                <sys:String>Dark Theme</sys:String>
+                                <!--<sys:String>Light Theme</sys:String>
+                                <sys:String>Dark Theme</sys:String>-->
                             </ComboBox>
                             <ComboBox Margin="5,0" SelectedIndex="0">
                                 <ComboBoxItem>Yellow</ComboBoxItem>
