@@ -11,6 +11,6 @@ You can download and install this application from: https://github.com/covalitio
 
 ## Screenshots ##
 
-![Screen](img/screen.png)
+![Screen](doc/img/screen.png)
 
 More features soon (or later).
