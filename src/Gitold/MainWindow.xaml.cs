@@ -24,6 +24,7 @@ namespace Gitold
         public MainWindow() {
             InitializeComponent();
             cbTheme.ItemsSource = (Application.Current as App).GetResourceNames("Theme");
+            cbAccent.ItemsSource = (Application.Current as App).GetResourceNames("Accent");
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e) {
@@ -44,6 +45,7 @@ namespace Gitold
 
         private void btnSetTheme_Click(object sender, RoutedEventArgs e) {
             (Application.Current as App).SwitchResources("Theme", cbTheme.SelectedValue as string);
+            (Application.Current as App).SwitchResources("Accent", cbAccent.SelectedValue as string);
         }
     }
 }

@@ -143,9 +143,9 @@
                                 <!--<sys:String>Light Theme</sys:String>
                                 <sys:String>Dark Theme</sys:String>-->
                             </ComboBox>
-                            <ComboBox Margin="5,0" SelectedIndex="0">
-                                <ComboBoxItem>Yellow</ComboBoxItem>
-                                <ComboBoxItem>Orange</ComboBoxItem>
+                            <ComboBox Margin="5,0" SelectedIndex="0" x:Name="cbAccent">
+                                <!--<ComboBoxItem>Yellow</ComboBoxItem>
+                                <ComboBoxItem>Orange</ComboBoxItem>-->
                             </ComboBox>
                             <Button x:Name="btnSetTheme" Click="btnSetTheme_Click">Set</Button>
                         </StackPanel>
