@@ -10,7 +10,7 @@
     WindowStyle="None" 
     WindowState="Maximized"  
     ResizeMode="CanResizeWithGrip"
-    Title="Gitold.Covalition">
+    Title="Gitold.Covalition" MinWidth="690" MinHeight="420">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
@@ -131,7 +131,29 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Settings">
-                <UserControls:EditLocalPaths />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Folder settings">
+                        <UserControls:EditLocalPaths />
+                    </GroupBox>
+                    <GroupBox Header="Theme" Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox SelectedIndex="0">
+                                <ComboBoxItem>Light Theme</ComboBoxItem>
+                                <ComboBoxItem>Dark Theme</ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox Margin="5,0" SelectedIndex="0">
+                                <ComboBoxItem>Yellow</ComboBoxItem>
+                                <ComboBoxItem>Orange</ComboBoxItem>
+                            </ComboBox>
+                            <Button>Set</Button>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+                
             </TabItem>
         </TabControl>
     </Grid>
