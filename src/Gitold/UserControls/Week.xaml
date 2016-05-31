@@ -60,6 +60,6 @@
         <TextBlock Grid.Row="5" Text="Thu" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="6" Text="Fri" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="7" Text="Sat" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="8" Text="All Days" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="8" Text="Hour" VerticalAlignment="Center" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

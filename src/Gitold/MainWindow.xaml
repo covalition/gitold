@@ -72,16 +72,15 @@
                     </Grid.ColumnDefinitions>
 
                     <!--Chart options-->
-                    <Grid Grid.Column="0" ><!--Background="{StaticResource GrayBrush8}"-->
+                    <Grid Grid.Column="0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <!--<TextBlock Text="Local Repo Paths:" Margin="5"/>-->
+                        
                         <GroupBox Header="Local Repo Paths">
                             <ListBox  SelectionMode="Multiple">
-                                <!--Margin="5,0,5,5"-->
                                 <ListBoxItem>Folder 1</ListBoxItem>
                                 <ListBoxItem>Folder 2</ListBoxItem>
                                 <ListBoxItem>Folder 3</ListBoxItem>
@@ -114,8 +113,7 @@
                                 
                             </Grid>
                         </GroupBox>
-                        <!--<Label VerticalContentAlignment="Center">Project local folder:</Label>
-            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Path}" VerticalContentAlignment="Center"></TextBox>-->
+                        
                         <Button Grid.Row="2" Command="{Binding Refresh}" Margin="5,0,5,5">Refresh</Button>
                     </Grid>
                     <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{StaticResource AccentColorBrush4}" Margin="0,20"/>
