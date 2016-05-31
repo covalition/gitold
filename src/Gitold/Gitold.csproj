@@ -242,6 +242,10 @@
       <Project>{46aa7cbc-a9f3-43bb-bf8f-3450d01bd81c}</Project>
       <Name>Gitold.ViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Igorary.Wpf\Igorary.Wpf.csproj">
+      <Project>{b6e920f3-f5e3-4fe0-9a90-fb46ebd7bc9c}</Project>
+      <Name>Igorary.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />

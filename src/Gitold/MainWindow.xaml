@@ -147,7 +147,7 @@
                                 <ComboBoxItem>Yellow</ComboBoxItem>
                                 <ComboBoxItem>Orange</ComboBoxItem>
                             </ComboBox>
-                            <Button>Set</Button>
+                            <Button x:Name="btnSetTheme" Click="btnSetTheme_Click">Set</Button>
                         </StackPanel>
                     </GroupBox>
                 </Grid>

@@ -39,5 +39,9 @@ namespace Gitold
         private void btnMaximize_Click(object sender, RoutedEventArgs e) {
             WindowState = WindowState.Maximized;
         }
+
+        private void btnSetTheme_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
