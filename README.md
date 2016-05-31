@@ -1,10 +1,16 @@
-# Gitoza
-## Local Repo Punch Card
+# Gitold.Covalition #
+Local Git Repos Analyzer
 
-Creates the punch card for your local git repository:
+## Project Description ##
 
-![Screen](doc/img/screen.png)
+Creates the punch card for your local git repository
 
-## Installer
+## Installation ##
 
-[Click here](https://rawgithub.com/romanoza/Gitoza/master/setup/setup.exe) to run the ClickOnce installer with the latest version.
+You can download and install this application from: https://github.com/covalition/gitold/releases
+
+## Screenshots ##
+
+![Screen](img/screen.png)
+
+More features soon (or later).
