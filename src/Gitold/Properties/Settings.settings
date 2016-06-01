@@ -5,5 +5,11 @@
     <Setting Name="LocalRepoPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Light Theme</Value>
+    </Setting>
+    <Setting Name="Accent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Theal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

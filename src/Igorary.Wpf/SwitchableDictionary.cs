@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,23 +11,31 @@ namespace Igorary.Wpf
     {
         public string Name { get; set; }
 
-        private List<NamedResourceSource> _sources = new List<NamedResourceSource>();
+        private ObservableCollection<NamedResourceSource> _sources; // = new List<NamedResourceSource>();
 
-        public List<NamedResourceSource> Sources {
+        public ObservableCollection<NamedResourceSource> Sources {
             get {
+                if(_sources == null) {
+                    _sources = new ObservableCollection<NamedResourceSource>();
+                    _sources.CollectionChanged += _sources_CollectionChanged;
+                }
                 return _sources;
             }
-            set {
-                if(value != _sources) {
-                    _sources = value;
-                    setSource();
-                }
-            }
+            //set {
+            //    if(value != _sources) {
+            //        _sources = value;
+            //        setSource();
+            //    }
+            //}
         }
 
-        private void setSource() {
-            if (Sources != null) {
-                NamedResourceSource sourceFound = Sources.FirstOrDefault(s => s.Name == CurrentDictionaryName);
+        private void _sources_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
+            updateSource();
+        }
+
+        private void updateSource() {
+            if (_sources != null && _currentDictionaryName != null) {
+                NamedResourceSource sourceFound = _sources.FirstOrDefault(s => s.Name == _currentDictionaryName);
                 if(sourceFound != null)
                     Source = sourceFound.Source;
             }
@@ -41,7 +50,7 @@ namespace Igorary.Wpf
             set {
                 if(value != _currentDictionaryName) {
                     _currentDictionaryName = value;
-                    setSource();
+                    updateSource();
                 }
             }
         }
