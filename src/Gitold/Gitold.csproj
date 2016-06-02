@@ -242,9 +242,9 @@
       <Project>{f076e99f-68c4-4518-b448-247445b55e40}</Project>
       <Name>Igorary.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\submodules\Igorary\src\Igorary.Wpf\Igorary.Xaml.csproj">
-      <Project>{b6e920f3-f5e3-4fe0-9a90-fb46ebd7bc9c}</Project>
-      <Name>Igorary.Xaml</Name>
+    <ProjectReference Include="..\..\submodules\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj">
+      <Project>{e244578f-c42e-40b0-add0-73a5812f4aa1}</Project>
+      <Name>Igorary.Wpf</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gitold.ViewModels\Gitold.ViewModels.csproj">
       <Project>{46aa7cbc-a9f3-43bb-bf8f-3450d01bd81c}</Project>

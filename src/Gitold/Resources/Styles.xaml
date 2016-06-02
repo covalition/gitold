@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Xaml">
+    xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Wpf">
 
     <Style TargetType="igoraryControls:ConfirmButton" BasedOn="{StaticResource {x:Type Button}}">
     </Style>

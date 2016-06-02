@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Gitold.UserControls"
              xmlns:viewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
              xmlns:igoraryViewModels="clr-namespace:Igorary.ViewModels;assembly=Igorary.ViewModels"
-             xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Xaml"
+             xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="700" d:DataContext="{d:DesignInstance Type=viewModels:PathsViewModel}">
     <Grid>
