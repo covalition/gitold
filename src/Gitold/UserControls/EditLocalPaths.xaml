@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Gitold.UserControls"
              xmlns:viewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
              xmlns:igoraryViewModels="clr-namespace:Igorary.ViewModels;assembly=Igorary.ViewModels"
+             xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Xaml"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="700" d:DataContext="{d:DesignInstance Type=viewModels:PathsViewModel}">
     <Grid>
@@ -20,8 +21,8 @@
 
         <!--Folder list buttons-->
         <StackPanel Grid.Column="0" Grid.Row="0" Margin="5" Orientation="Horizontal">
-            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}" Click="btnDelete_Click"/>
-            <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" x:Name="btnDelete" Click="btnDelete_Click"/>
+            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}"/>
+            <igoraryControls:ConfirmButton Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" ConfirmationMessage="Are you sure to delete this item?"/>
         </StackPanel>
 
         <!--Folder list-->
