@@ -52,6 +52,9 @@
                 
                 <!-- Icons -->
                 <ResourceDictionary Source="/Resources/Icons.xaml" />
+                
+                <!--My styles-->
+                <ResourceDictionary Source="/Resources/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
