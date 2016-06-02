@@ -12,61 +12,45 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--Folder list buttons-->
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="5" Orientation="Horizontal">
+            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}"/>
+            <!--<Button Content="Edit" Margin="0,0,5,0" Command="{Binding EditCommand, Mode=OneWay}"/>-->
+            <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" />
+        </StackPanel>
 
         <!--Folder list-->
-        <Grid Margin="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Content="{Binding Caption}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
-            <ListBox Margin="5,0" ItemsSource="{Binding ListItems}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <ListBoxItem Content="{Binding Caption}" />
-                    </DataTemplate>
-                    
-                </ListBox.ItemTemplate>
-                <!--<ListBox.Template>
-                    <ControlTemplate>
-                        
-                    </ControlTemplate>-->
-                    
-                    <!--<ControlTemplate>
-                        
-                    </ControlTemplate>-->
-                <!--</ListBox.Template>-->
-                
-                <!--<ListBoxItem Content="Folder 2" />-->
-            </ListBox>
+        <!--Item buttons-->
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button Content="Save" Command="{Binding SaveCommand, Mode=OneWay}" />
+            <Button Content="Cancel" Margin="5,0,0,0" Command="{Binding CancelCommand, Mode=OneWay}"/>
+        </StackPanel>
 
-            <StackPanel Grid.Column="1">
-                <Button Content="New" Margin="0,0,0,5" Command="{Binding NewCommand, Mode=OneWay}"/>
-                <Button Content="Edit" Margin="0,0,0,5" Command="{Binding EditCommand, Mode=OneWay}"/>
-                <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" />
-            </StackPanel>
-
-        </Grid>
-        
-        <!--Path edit, subject to visibility-->
-        <Grid Grid.Column="1" Margin="5">
+        <!--Item-->
+        <Grid Margin="5,0" Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" HorizontalAlignment="Stretch"></TextBox>
-                <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" />
-            </Grid>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
-                <Button Content="Save" />
-                <Button Content="Cancel" Margin="5,0,0,0"/>
-            </StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" HorizontalAlignment="Stretch"></TextBox>
+            <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" />
         </Grid>
     </Grid>
 </UserControl>
