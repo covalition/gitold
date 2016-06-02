@@ -1,3 +1,5 @@
-[submodule "src/Igorary"]
-	path = src/Igorary
-	url = D:/Projects/Igorary/.git
+[submodule "submodules/Igorary"]
+	
+path = submodules/Igorary
+	
+url = https://github.com/covalition/igorary.git
