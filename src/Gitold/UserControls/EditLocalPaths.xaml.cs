@@ -24,9 +24,8 @@ namespace Gitold.UserControls
             InitializeComponent();
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            
-                
+        private void btnSelectFolder_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }

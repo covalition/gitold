@@ -26,6 +26,12 @@ namespace Gitold.ViewModels
                 });
         }
 
+        protected override async Task<List<LabeledFieldViewModel>> LoadFields() {
+            List<LabeledFieldViewModel> res = new List<LabeledFieldViewModel>();
+            res.Add(new FolderPathFieldViewModel("Folder"));
+            return res;
+        }
+
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously     
 
         protected override void Delete() {
@@ -41,9 +47,6 @@ namespace Gitold.ViewModels
                 Properties.Settings.Default.LocalRepoPaths[SelectedItemIndex] = path;
             Properties.Settings.Default.Save();
         }
-
-        protected override Task<List<LabeledFieldViewModel>> LoadFields() {
-            throw new NotImplementedException();
-        }
+        
     }
 }

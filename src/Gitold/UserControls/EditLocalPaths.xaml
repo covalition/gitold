@@ -38,31 +38,27 @@
         <ItemsControl Margin="5,0" Grid.Column="1" Grid.Row="1" Grid.IsSharedSizeScope="true" ItemsSource="{Binding Fields, Mode=OneWay}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid HorizontalAlignment="Stretch" Background="Green">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="Label" />
+                            <ColumnDefinition SharedSizeGroup="Label" Width="Auto"/>
                             <ColumnDefinition SharedSizeGroup="Value" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Label, Mode=OneWay}" />
-                        <ContentPresenter Grid.Column="1">
+                        <TextBlock Grid.Column="0" Text="{Binding Label, Mode=OneWay}" Margin="5,0" VerticalAlignment="Center"/>
+                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Stretch">
                             <ContentPresenter.ContentTemplate>
                                 <DataTemplate DataType="{x:Type igoraryViewModels:FolderPathFieldViewModel}">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
+                                    <Grid HorizontalAlignment="Stretch" Background="Red">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
-                                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Text="{Binding Value}" x:Name="tbFolderPath"/>
-                                        <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" x:Name="btnSelectFolder" />
+                                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Text="{Binding Value}" x:Name="tbFolderPath" VerticalAlignment="Center" />
+                                        <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" x:Name="btnSelectFolder" Click="btnSelectFolder_Click"/>
                                     </Grid>
                                 </DataTemplate>
                             </ContentPresenter.ContentTemplate>
                         </ContentPresenter>
-                        <!--<TextBlock Grid.Column="1" Text="{Binding MySecondProperty}" />-->
+                        
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
