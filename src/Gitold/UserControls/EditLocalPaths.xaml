@@ -20,9 +20,24 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <ListBox Margin="5,0">
-                <ListBoxItem Content="Folder 1" />
-                <ListBoxItem Content="Folder 2" />
+            <ListBox Margin="5,0" ItemsSource="{Binding ListItems}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem Content="{Binding Caption}" />
+                    </DataTemplate>
+                    
+                </ListBox.ItemTemplate>
+                <!--<ListBox.Template>
+                    <ControlTemplate>
+                        
+                    </ControlTemplate>-->
+                    
+                    <!--<ControlTemplate>
+                        
+                    </ControlTemplate>-->
+                <!--</ListBox.Template>-->
+                
+                <!--<ListBoxItem Content="Folder 2" />-->
             </ListBox>
 
             <StackPanel Grid.Column="1">
