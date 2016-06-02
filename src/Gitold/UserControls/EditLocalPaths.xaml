@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Gitold.UserControls"
+             xmlns:viewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="700">
+             d:DesignHeight="400" d:DesignWidth="700" d:DataContext="{d:DesignInstance Type=viewModels:PathsViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -25,9 +26,9 @@
             </ListBox>
 
             <StackPanel Grid.Column="1">
-                <Button Content="New" Margin="0,0,0,5"/>
-                <Button Content="Edit" Margin="0,0,0,5"/>
-                <Button Content="Delete..." />
+                <Button Content="New" Margin="0,0,0,5" Command="{Binding NewCommand, Mode=OneWay}"/>
+                <Button Content="Edit" Margin="0,0,0,5" Command="{Binding EditCommand, Mode=OneWay}"/>
+                <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" />
             </StackPanel>
 
         </Grid>

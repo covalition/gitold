@@ -135,7 +135,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <GroupBox Header="Folder settings">
-                        <UserControls:EditLocalPaths />
+                        <UserControls:EditLocalPaths DataContext="{Binding PathSettings, Mode=OneWay}" />
                     </GroupBox>
                     <GroupBox Header="Theme" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">

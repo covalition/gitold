@@ -124,7 +124,13 @@ namespace Gitold.ViewModels
 
         #region Settings
 
-        
+        private PathsViewModel _pathSettings;
+
+        public PathsViewModel PathSettings {
+            get {
+                return _pathSettings?? (_pathSettings = new PathsViewModel(this));
+            }
+        }
 
         #endregion
 

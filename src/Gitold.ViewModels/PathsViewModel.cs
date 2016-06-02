@@ -7,7 +7,12 @@ using Igorary.ViewModels;
 
 namespace Gitold.ViewModels
 {
-    public class PathsViewModel: GenericListEditViewModel<PathViewModel>
+    public class PathsViewModel : GenericListEditViewModel<PathViewModel>
     {
+        private MainViewModel _mainViewModel;
+
+        public PathsViewModel(MainViewModel mainViewModel) {
+            _mainViewModel = mainViewModel;
+        }
     }
 }
