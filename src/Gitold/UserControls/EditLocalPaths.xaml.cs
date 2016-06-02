@@ -23,5 +23,10 @@ namespace Gitold.UserControls
         public EditLocalPaths() {
             InitializeComponent();
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e) {
+            
+                
+        }
     }
 }

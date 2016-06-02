@@ -20,19 +20,12 @@
 
         <!--Folder list buttons-->
         <StackPanel Grid.Column="0" Grid.Row="0" Margin="5" Orientation="Horizontal">
-            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}"/>
-            <!--<Button Content="Edit" Margin="0,0,5,0" Command="{Binding EditCommand, Mode=OneWay}"/>-->
-            <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" />
+            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}" Click="btnDelete_Click"/>
+            <Button Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" x:Name="btnDelete" Click="btnDelete_Click"/>
         </StackPanel>
 
         <!--Folder list-->
-        <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <ListBoxItem Content="{Binding Caption}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}" DisplayMemberPath="Caption" />
 
         <!--Item buttons-->
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="5">
