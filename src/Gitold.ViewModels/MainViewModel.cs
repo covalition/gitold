@@ -3,11 +3,11 @@ using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using Gitold.Application;
 
 namespace Gitold.ViewModels
 {
-    using Application;
-    using GalaSoft.MvvmLight.Messaging;
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel() {
@@ -121,6 +121,12 @@ namespace Gitold.ViewModels
                 return _dayViewModels;
             }
         }
+
+        #region Settings
+
         
+
+        #endregion
+
     }
 }
