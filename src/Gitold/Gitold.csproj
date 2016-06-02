@@ -238,11 +238,11 @@
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Igorary\src\Igorary.ViewModels\Igorary.ViewModels.csproj">
+    <ProjectReference Include="..\..\submodules\Igorary\src\Igorary.ViewModels\Igorary.ViewModels.csproj">
       <Project>{f076e99f-68c4-4518-b448-247445b55e40}</Project>
       <Name>Igorary.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj">
+    <ProjectReference Include="..\..\submodules\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj">
       <Project>{b6e920f3-f5e3-4fe0-9a90-fb46ebd7bc9c}</Project>
       <Name>Igorary.Wpf</Name>
     </ProjectReference>

@@ -16,9 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitold.Application", "Gitol
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Igorary", "Igorary", "{704CB6AA-E7A6-4ED7-BF10-E943AE23985A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.ViewModels", "..\..\..\Igorary\src\Igorary.ViewModels\Igorary.ViewModels.csproj", "{F076E99F-68C4-4518-B448-247445B55E40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.ViewModels", "..\submodules\Igorary\src\Igorary.ViewModels\Igorary.ViewModels.csproj", "{F076E99F-68C4-4518-B448-247445B55E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Wpf", "..\..\..\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj", "{B6E920F3-F5E3-4FE0-9A90-FB46EBD7BC9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Wpf", "..\submodules\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj", "{B6E920F3-F5E3-4FE0-9A90-FB46EBD7BC9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
