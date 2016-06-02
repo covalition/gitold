@@ -14,5 +14,18 @@ namespace Gitold.ViewModels
         public PathsViewModel(MainViewModel mainViewModel) {
             _mainViewModel = mainViewModel;
         }
+
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+
+        protected override async Task<IEnumerable<PathViewModel>> GetItems() {
+            return Properties.Settings.Default.LocalRepoPaths
+                .Cast<string>()
+                .Select(s => new PathViewModel
+                {
+                    Caption = s
+                });
+        }
     }
+
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
 }
