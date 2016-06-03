@@ -33,18 +33,25 @@ namespace Gitold.ViewModels
             return Task.FromResult(res);
         }
 
-        protected override void Delete() {
-            Properties.Settings.Default.LocalRepoPaths.RemoveAt(SelectedItemIndex);
-            Properties.Settings.Default.Save();
+        protected override Task Delete() {
+            return Task.Run(() =>
+            {
+                Properties.Settings.Default.LocalRepoPaths.RemoveAt(SelectedItemIndex);
+                Properties.Settings.Default.Save();
+            });
         }
 
-        protected override void Save() {
-            string path = (Fields[0] as FolderPathFieldViewModel).Value;
-            if (IsNew)
-                Properties.Settings.Default.LocalRepoPaths.Add(path);
-            else
-                Properties.Settings.Default.LocalRepoPaths[SelectedItemIndex] = path;
-            Properties.Settings.Default.Save();
+        protected override Task<int> Save() {
+            return Task.Run(() =>
+            {
+                string path = (Fields[0] as FolderPathFieldViewModel).Value;
+                if (IsNew)
+                    Properties.Settings.Default.LocalRepoPaths.Add(path);
+                else
+                    Properties.Settings.Default.LocalRepoPaths[SelectedItemIndex] = path;
+                Properties.Settings.Default.Save();
+                return IsNew ? Properties.Settings.Default.LocalRepoPaths.Count - 1 : SelectedItemIndex;
+            });
         }
         
     }
