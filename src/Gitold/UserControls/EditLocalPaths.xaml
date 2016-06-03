@@ -35,19 +35,21 @@
         </StackPanel>
 
         <!--Item-->
-        <ItemsControl Margin="5,0" Grid.Column="1" Grid.Row="1" Grid.IsSharedSizeScope="true" ItemsSource="{Binding Fields, Mode=OneWay}">
+        <ItemsControl Margin="5,0" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Fields, Mode=OneWay}" HorizontalContentAlignment="Stretch">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch" Background="Green">
+                    <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="Label" Width="Auto"/>
-                            <ColumnDefinition SharedSizeGroup="Value" />
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Label, Mode=OneWay}" Margin="5,0" VerticalAlignment="Center"/>
+                        <!--<Grid Background="Blue" Grid.Column="1" HorizontalAlignment="Stretch"></Grid>-->
+                        <!--<TextBox  Grid.Column="1" HorizontalAlignment="Stretch"/>-->
                         <ContentPresenter Grid.Column="1" HorizontalAlignment="Stretch">
                             <ContentPresenter.ContentTemplate>
                                 <DataTemplate DataType="{x:Type igoraryViewModels:FolderPathFieldViewModel}">
-                                    <Grid HorizontalAlignment="Stretch" Background="Red">
+                                    <Grid HorizontalAlignment="Stretch">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
                                             <ColumnDefinition Width="Auto" />
