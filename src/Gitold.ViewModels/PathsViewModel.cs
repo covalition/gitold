@@ -15,24 +15,23 @@ namespace Gitold.ViewModels
             _mainViewModel = mainViewModel;
         }
 
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-
-        protected override async Task<IEnumerable<PathViewModel>> LoadItems() {
-            return Properties.Settings.Default.LocalRepoPaths
+        protected override Task<IEnumerable<PathViewModel>> LoadItems() {
+            return Task.FromResult(Properties.Settings.Default.LocalRepoPaths
                 .Cast<string>()
                 .Select(s => new PathViewModel
                 {
                     Caption = s
-                });
+                }));
         }
 
-        protected override async Task<List<LabeledFieldViewModel>> LoadFields() {
+        protected override Task<List<LabeledFieldViewModel>> LoadFields() {
             List<LabeledFieldViewModel> res = new List<LabeledFieldViewModel>();
-            res.Add(new FolderPathFieldViewModel("Folder"));
-            return res;
+            FolderPathFieldViewModel folderPath = new FolderPathFieldViewModel("Folder", this);
+            if (SelectedItemIndex >= 0 && SelectedItemIndex < Properties.Settings.Default.LocalRepoPaths.Count)
+                folderPath.Value = Properties.Settings.Default.LocalRepoPaths[SelectedItemIndex];
+            res.Add(folderPath);
+            return Task.FromResult(res);
         }
-
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously     
 
         protected override void Delete() {
             Properties.Settings.Default.LocalRepoPaths.RemoveAt(SelectedItemIndex);
