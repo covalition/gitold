@@ -44,40 +44,25 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Label, Mode=OneWay}" Margin="5,0" VerticalAlignment="Center"/>
-                        <!--<Grid Background="Blue" Grid.Column="1" HorizontalAlignment="Stretch"></Grid>-->
-                        <!--<TextBox  Grid.Column="1" HorizontalAlignment="Stretch"/>-->
                         <ContentPresenter Grid.Column="1" HorizontalAlignment="Stretch">
                             <ContentPresenter.ContentTemplate>
                                 <DataTemplate DataType="{x:Type igoraryViewModels:FolderPathFieldViewModel}">
-                                    <Grid HorizontalAlignment="Stretch">
+                                    <igoraryControls:FolderTextBox HorizontalAlignment="Stretch"/>
+                                    <!--<Grid HorizontalAlignment="Stretch">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Text="{Binding Value}" x:Name="tbFolderPath" VerticalAlignment="Center" />
                                         <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" x:Name="btnSelectFolder" Click="btnSelectFolder_Click"/>
-                                    </Grid>
+                                    </Grid>-->
                                 </DataTemplate>
                             </ContentPresenter.ContentTemplate>
                         </ContentPresenter>
-                        
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-
-        <!--<Grid Margin="5,0" Grid.Column="1" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" HorizontalAlignment="Stretch"></TextBox>
-            <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" />
-        </Grid>-->
     </Grid>
 </UserControl>

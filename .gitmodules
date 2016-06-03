@@ -4,4 +4,4 @@ path = submodules/Igorary
 	
 url = https://github.com/covalition/igorary.git
 
-branch = develop-gitold
+branch = master

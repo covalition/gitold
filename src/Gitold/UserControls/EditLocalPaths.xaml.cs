@@ -25,7 +25,9 @@ namespace Gitold.UserControls
         }
 
         private void btnSelectFolder_Click(object sender, RoutedEventArgs e) {
-
+            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+            //if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    string res = dialog.SelectedPath;
         }
     }
 }
