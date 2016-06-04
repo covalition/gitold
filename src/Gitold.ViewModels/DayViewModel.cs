@@ -19,7 +19,6 @@ namespace Gitold.ViewModels
             }
         }
 
-
         private int _value;
 
         public int Value {

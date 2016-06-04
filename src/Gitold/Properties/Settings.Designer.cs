@@ -25,18 +25,6 @@ namespace Gitold.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LocalRepoPath {
-            get {
-                return ((string)(this["LocalRepoPath"]));
-            }
-            set {
-                this["LocalRepoPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Light Theme")]
         public string Theme {
             get {

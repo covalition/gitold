@@ -143,7 +143,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MultiplicationConverter.cs" />
-    <Compile Include="SummaryToBrushConverter.cs" />
     <Compile Include="UserControls\Day.xaml.cs">
       <DependentUpon>Day.xaml</DependentUpon>
     </Compile>

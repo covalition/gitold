@@ -10,12 +10,24 @@
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance Type={x:Type ViewModels:DayViewModel}}">
 
     <UserControl.Resources>
-        <Gitold:SummaryToBrushConverter x:Key="SummaryToBrushConverter"/>
+        <!--<Gitold:SummaryToBrushConverter x:Key="SummaryToBrushConverter"/>-->
         <Gitold:MultiplicationConverter x:Key="MultiplicationConverter"/>
     </UserControl.Resources>
 
     <Grid x:Name="grid">
-        <Ellipse ToolTip="{Binding Value}" Fill="{Binding IsSummary, Converter={StaticResource SummaryToBrushConverter}}" Stretch="Uniform">
+        <Ellipse ToolTip="{Binding Value}" Stretch="Uniform">
+            <Ellipse.Style>
+                <Style TargetType="Ellipse">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSummary}" Value="true">
+                            <Setter Property="Fill" Value="{DynamicResource AccentColorBrush}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsSummary}" Value="false">
+                            <Setter Property="Fill" Value="{DynamicResource BlackBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Ellipse.Style>
             <Ellipse.Width>
                 <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
                     <Binding Path="Percent" Mode="OneWay"/>

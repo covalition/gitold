@@ -19,7 +19,7 @@ namespace Gitold.UserControls
                 if (h < 24)
                     tb.Text = h.ToString();
                 else
-                    tb.Text = "Day";
+                    tb.Text = "All Day";
                 tb.SetValue(Grid.ColumnProperty, h + 1);
                 tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 grMain.Children.Add(tb);
