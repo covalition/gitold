@@ -48,12 +48,19 @@ namespace Gitold.Application
 
         public static async Task<int[,]> GetCommitCounts(string[] repoPaths) {
             int[,] res = new int[7, 24];
+
+            List<Task<int[,]>> tasks = new List<Task<int[,]>>();
             foreach (string repoPath in repoPaths) {
-                int[,] counts = await GetCommitCounts(repoPath);
-                for(int i = 0; i < 7; i++)
-                    for (int j = 0; j < 24; j++)
-                        res[i,j] += counts[i,j];
+                tasks.Add(GetCommitCounts(repoPath));
             }
+
+            foreach (Task<int[,]> t in tasks) {
+                int[,] counts = await t;
+                for (int i = 0; i < 7; i++)
+                    for (int j = 0; j < 24; j++)
+                        res[i, j] += counts[i, j];
+            }
+
             return res;
         }
 
@@ -62,8 +69,8 @@ namespace Gitold.Application
                 throw new Exception("The path is not set.");
 
             int[,] res = new int[7, 24];
-            Task<string> t = listShaWithFiles(repoPath);
-            string output = await t;
+            string output = await listShaWithFiles(repoPath);
+            //string output = await t;
             List<GitCommit> commits = await ParseGitLog.Parse(output);
             IEnumerable<string> datesAsString = commits.Select(c => c.Headers["Date"]);
 
