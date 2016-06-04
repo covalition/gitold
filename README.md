@@ -5,6 +5,13 @@ Local Git Repos Analyzer
 
 Creates the punch card for your local git repository
 
+### System Requirements ###
+
+* For use: 
+  * .NET Framework 4.6
+  * git.exe
+* For development: Visual Studio 2015
+
 ## Installation ##
 
 You can download and install this application from: https://github.com/covalition/gitold/releases
