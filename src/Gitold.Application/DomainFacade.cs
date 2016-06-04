@@ -71,7 +71,7 @@ namespace Gitold.Application
                 using (Repository repo = new Repository(repoPath)) {
                     int[,] res = new int[7, 24];
                     // var temp = repo.Commits.ToList();
-                    List<DateTime> dates = repo.Commits.Select(c => c.Committer.When.LocalDateTime).ToList();
+                    List<DateTime> dates = repo.Commits.QueryBy(new CommitFilter() { FirstParentOnly = true /*IncludeReachableFrom="master" */}).Select(c => c.Committer.When.LocalDateTime).ToList();
                     var counts = dates
                        .GroupBy(d => new { d.DayOfWeek, d.Hour })
                        .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
@@ -82,25 +82,6 @@ namespace Gitold.Application
                     return res;
                 }
             });
-
-            //    if (string.IsNullOrEmpty(repoPath))
-            //    throw new Exception("The path is not set.");
-
-            //int[,] res = new int[7, 24];
-            //string output = await listShaWithFiles(repoPath);
-            ////string output = await t;
-            //List<GitCommit> commits = await ParseGitLog.Parse(output);
-            //IEnumerable<string> datesAsString = commits.Select(c => c.Headers["Date"]);
-
-            //var counts = datesAsString.Select(str => DateTime.Parse(str))
-            //    .GroupBy(d => new { d.DayOfWeek, d.Hour })
-            //    .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
-
-
-            //foreach (var c in counts)
-            //    res[(int)c.DayOfWeek, c.Hour] = c.Count;
-
-            //return res;
         }
     }
 }
