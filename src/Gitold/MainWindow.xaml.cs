@@ -52,5 +52,6 @@ namespace Gitold
             (Application.Current as App).SwitchResources("Accent", Properties.Settings.Default.Accent = cbAccent.SelectedValue as string);
             Properties.Settings.Default.Save();
         }
+        
     }
 }

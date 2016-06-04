@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="DayViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="PathItemViewModel.cs" />
     <Compile Include="PathsViewModel.cs" />
     <Compile Include="PathViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

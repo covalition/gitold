@@ -38,6 +38,7 @@ namespace Gitold.ViewModels
             {
                 Properties.Settings.Default.LocalRepoPaths.RemoveAt(SelectedItemIndex);
                 Properties.Settings.Default.Save();
+                _mainViewModel.PathsChanged();
             });
         }
 
@@ -50,6 +51,7 @@ namespace Gitold.ViewModels
                 else
                     Properties.Settings.Default.LocalRepoPaths[SelectedItemIndex] = path;
                 Properties.Settings.Default.Save();
+                _mainViewModel.PathsChanged();
                 return IsNew ? Properties.Settings.Default.LocalRepoPaths.Count - 1 : SelectedItemIndex;
             });
         }

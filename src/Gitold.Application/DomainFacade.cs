@@ -28,7 +28,7 @@ namespace Gitold.Application
             if (!File.Exists(gitExecutable))
                 throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
             p.StartInfo.FileName = gitExecutable;
-            
+
             p.StartInfo.Arguments = command;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.StartInfo.CreateNoWindow = true;
@@ -46,27 +46,35 @@ namespace Gitold.Application
                 throw new Exception($"ErrorDataReceived: {e.Data}");
         }
 
-        public static async Task<int[,]> GetCommitCounts(string repoPath) {
+        public static async Task<int[,]> GetCommitCounts(string[] repoPaths) {
+            int[,] res = new int[7, 24];
+            foreach (string repoPath in repoPaths) {
+                int[,] counts = await GetCommitCounts(repoPath);
+                for(int i = 0; i < 7; i++)
+                    for (int j = 0; j < 24; j++)
+                        res[i,j] += counts[i,j];
+            }
+            return res;
+        }
+
+        private static async Task<int[,]> GetCommitCounts(string repoPath) {
             if (string.IsNullOrEmpty(repoPath))
                 throw new Exception("The path is not set.");
 
-            Task<string> t = listShaWithFiles(repoPath);
-
-            // string output = listShaWithFiles(repoPath);
-            ParseGitLog parser = new ParseGitLog();
             int[,] res = new int[7, 24];
-
+            Task<string> t = listShaWithFiles(repoPath);
             string output = await t;
-            List<GitCommit> commits = await parser.Parse(output);
+            List<GitCommit> commits = await ParseGitLog.Parse(output);
             IEnumerable<string> datesAsString = commits.Select(c => c.Headers["Date"]);
-            
+
             var counts = datesAsString.Select(str => DateTime.Parse(str))
                 .GroupBy(d => new { d.DayOfWeek, d.Hour })
                 .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
-            
-            
+
+
             foreach (var c in counts)
                 res[(int)c.DayOfWeek, c.Hour] = c.Count;
+
             return res;
         }
     }

@@ -80,11 +80,20 @@
                         </Grid.RowDefinitions>
                         
                         <GroupBox Header="Local Repo Paths">
-                            <ListBox  SelectionMode="Multiple">
-                                <ListBoxItem>Folder 1</ListBoxItem>
-                                <ListBoxItem>Folder 2</ListBoxItem>
-                                <ListBoxItem>Folder 3</ListBoxItem>
-                                <ListBoxItem>Folder 4</ListBoxItem>
+                            <ListBox SelectionMode="Multiple" ItemsSource="{Binding Paths}" DisplayMemberPath="Caption">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <!--<ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock ></TextBlock>
+                                        </Grid>
+                                        <ListBoxItem Content="{Binding Caption}" IsSelected="{Binding IsSelected, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>-->
                             </ListBox>
                         </GroupBox>
                         <GroupBox Header="Filter" Grid.Row="1">

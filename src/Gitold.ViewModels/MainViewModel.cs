@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
@@ -11,7 +12,7 @@ namespace Gitold.ViewModels
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel() {
-            Path = Properties.Settings.Default.LocalRepoPath;
+            //Path = Properties.Settings.Default.LocalRepoPath;
         }
 
         #region Refresh command
@@ -41,7 +42,8 @@ namespace Gitold.ViewModels
         private async void refreshAction() {
             Refreshing = true;
             try {
-                int[,] _values = await DomainFacade.GetCommitCounts(Path);
+                string[] paths = Paths.Where(p => p.IsSelected).Select(p => p.Caption).ToArray();
+                int[,] _values = await DomainFacade.GetCommitCounts(paths);
                 int max = _values.Cast<int>().Max();
                 int maxSumH = 0, maxSumD = 0;
                 for (int d = 0; d < 8; d++) {
@@ -72,8 +74,8 @@ namespace Gitold.ViewModels
                 for (int h = 0; h < 24; h++)
                     DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
 
-                Properties.Settings.Default.LocalRepoPath = Path;
-                Properties.Settings.Default.Save();
+                //Properties.Settings.Default.LocalRepoPath = Path;
+                //Properties.Settings.Default.Save();
             }
             catch (Exception ex) {
                 // MessageBox.Show(ex.Message);
@@ -84,25 +86,42 @@ namespace Gitold.ViewModels
             }
         }
 
+        internal void PathsChanged() {
+            _paths = null;
+            RaisePropertyChanged(nameof(Paths));
+        }
+
         private bool refreshCanExecute() {
             return !_refreshing;
         }
 
         #endregion
 
-        private string _path;
+        private List<PathItemViewModel> _paths;
 
-        public string Path {
+        public List<PathItemViewModel> Paths {
             get {
-                return _path;
-            }
-            set {
-                if (value != _path) {
-                    _path = value;
-                    RaisePropertyChanged(() => Path);
-                }
+                return _paths ?? (_paths = 
+                    Properties.Settings.Default.LocalRepoPaths
+                    .Cast<string>()
+                    .Select(s => new PathItemViewModel { Caption = s })
+                    .ToList());
             }
         }
+
+        //private string _path;
+
+        //public string Path {
+        //    get {
+        //        return _path;
+        //    }
+        //    set {
+        //        if (value != _path) {
+        //            _path = value;
+        //            RaisePropertyChanged(() => Path);
+        //        }
+        //    }
+        //}
 
         DayViewModel[,] _dayViewModels;
 

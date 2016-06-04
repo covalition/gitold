@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Gitold.Application
 {
     // based on: http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
-    public class ParseGitLog
+    public static class ParseGitLog
     {
-        private bool startsWithHeader(string line) {
+        private static bool startsWithHeader(string line) {
             if (line.Length > 0 && char.IsLetter(line[0])) {
                 var seq = line.SkipWhile(ch => char.IsLetter(ch) && ch != ':');
                 return seq.FirstOrDefault() == ':';
@@ -18,7 +18,7 @@ namespace Gitold.Application
             return false;
         }
 
-        public async Task<List<GitCommit>> Parse(string output) {
+        public static async Task<List<GitCommit>> Parse(string output) {
             GitCommit commit = null;
             List<GitCommit> commits = new List<GitCommit>();
             bool processingMessage = false;
