@@ -23,6 +23,9 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Igorary.Xaml.Shared", "..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.shproj", "{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719}"
 EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.projitems*{e244578f-c42e-40b0-add0-73a5812f4aa1}*SharedItemsImports = 4
 		..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.projitems*{eaf0b9a3-7db9-4d7a-aea3-e7b1a3e64719}*SharedItemsImports = 13
