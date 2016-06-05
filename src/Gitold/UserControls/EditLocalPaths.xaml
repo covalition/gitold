@@ -52,14 +52,6 @@
                             <ContentPresenter.ContentTemplate>
                                 <DataTemplate DataType="{x:Type igoraryViewModels:FolderPathFieldViewModel}">
                                     <igoraryControls:FolderTextBox HorizontalAlignment="Stretch" FolderPath="{Binding Value, Mode=TwoWay}"/>
-                                    <!--<Grid HorizontalAlignment="Stretch">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Text="{Binding Value}" x:Name="tbFolderPath" VerticalAlignment="Center" />
-                                        <Button Grid.Column="1" Content="Select Folder..." Margin="5,0,0,0" x:Name="btnSelectFolder" Click="btnSelectFolder_Click"/>
-                                    </Grid>-->
                                 </DataTemplate>
                             </ContentPresenter.ContentTemplate>
                         </ContentPresenter>
