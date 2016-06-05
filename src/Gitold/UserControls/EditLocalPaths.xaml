@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Gitold.UserControls.EditLocalPaths"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,8 +7,12 @@
              xmlns:viewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
              xmlns:igoraryViewModels="clr-namespace:Igorary.ViewModels;assembly=Igorary.ViewModels"
              xmlns:igoraryControls="clr-namespace:Igorary.Xaml.Controls;assembly=Igorary.Wpf"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" x:Class="Gitold.UserControls.EditLocalPaths"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="700" d:DataContext="{d:DesignInstance Type=viewModels:PathsViewModel}">
+             d:DesignHeight="400" d:DesignWidth="700" d:DataContext="{d:DesignInstance Type={x:Type viewModels:PathsViewModel}}">
+    <UserControl.Resources>
+        <xcdg:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -26,9 +30,9 @@
                 <igoraryControls:ConfirmButton Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" ConfirmationMessage="Are you sure to delete this item?"/>
             </StackPanel>
         </Border>
-        
+
         <!--Folder list-->
-        <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}" DisplayMemberPath="Caption" />
+        <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}" DisplayMemberPath="Caption" IsEnabled="{Binding Modified, Converter={StaticResource InverseBooleanConverter}}" />
 
         <!--Item buttons-->
         <Border Grid.Column="1" Grid.Row="0" Margin="5" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}">
@@ -37,7 +41,7 @@
                 <Button Content="Cancel" Margin="5,0,0,0" Command="{Binding CancelCommand, Mode=OneWay}"/>
             </StackPanel>
         </Border>
-        
+
         <!--Item-->
         <ItemsControl Margin="5,0" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Fields, Mode=OneWay}" HorizontalContentAlignment="Stretch">
             <ItemsControl.ItemTemplate>
