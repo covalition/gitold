@@ -55,6 +55,9 @@ namespace Gitold.ViewModels
                 return IsNew ? Properties.Settings.Default.LocalRepoPaths.Count - 1 : SelectedItemIndex;
             });
         }
-        
+
+        protected override void OnException(Exception ex) {
+            // TODO:
+        }
     }
 }

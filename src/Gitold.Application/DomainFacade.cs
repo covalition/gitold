@@ -14,38 +14,38 @@ namespace Gitold.Application
     // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
     public static class DomainFacade
     {
-        private static async Task<string> listShaWithFiles(string path) {
-            string output = await runProcess(string.Format(" --git-dir=\"{0}/.git\"  --work-tree=\"{1}\" log --name-status --date=iso", path.Replace("\\", "/"), path.Replace("\\", "/")));
-            return output;
-        }
+        //private static async Task<string> listShaWithFiles(string path) {
+        //    string output = await runProcess(string.Format(" --git-dir=\"{0}/.git\"  --work-tree=\"{1}\" log --name-status --date=iso", path.Replace("\\", "/"), path.Replace("\\", "/")));
+        //    return output;
+        //}
 
-        private static async Task<string> runProcess(string command) {
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.RedirectStandardError = true;
+        //private static async Task<string> runProcess(string command) {
+        //    Process p = new Process();
+        //    p.StartInfo.UseShellExecute = false;
+        //    p.StartInfo.RedirectStandardOutput = true;
+        //    p.StartInfo.RedirectStandardError = true;
 
-            string gitExecutable = Properties.Settings.Default.GitExecutable;
-            if (!File.Exists(gitExecutable))
-                throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
-            p.StartInfo.FileName = gitExecutable;
+        //    string gitExecutable = Properties.Settings.Default.GitExecutable;
+        //    if (!File.Exists(gitExecutable))
+        //        throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
+        //    p.StartInfo.FileName = gitExecutable;
 
-            p.StartInfo.Arguments = command;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.StartInfo.CreateNoWindow = true;
-            p.ErrorDataReceived += p_ErrorDataReceived;
-            p.Start();
-            p.BeginErrorReadLine();
-            string output = await p.StandardOutput.ReadToEndAsync();
-            p.WaitForExit();
-            return output;
-        }
+        //    p.StartInfo.Arguments = command;
+        //    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+        //    p.StartInfo.CreateNoWindow = true;
+        //    p.ErrorDataReceived += p_ErrorDataReceived;
+        //    p.Start();
+        //    p.BeginErrorReadLine();
+        //    string output = await p.StandardOutput.ReadToEndAsync();
+        //    p.WaitForExit();
+        //    return output;
+        //}
 
-        static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e) {
-            if (e.Data != null)
-                // MessageBox.Show(e.Data);
-                throw new Exception($"ErrorDataReceived: {e.Data}");
-        }
+        //static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e) {
+        //    if (e.Data != null)
+        //        // MessageBox.Show(e.Data);
+        //        throw new Exception($"ErrorDataReceived: {e.Data}");
+        //}
 
         public static async Task<int[,]> GetCommitCounts(string[] repoPaths) {
             int[,] res = new int[7, 24];
@@ -70,8 +70,10 @@ namespace Gitold.Application
             {
                 using (Repository repo = new Repository(repoPath)) {
                     int[,] res = new int[7, 24];
-                    // var temp = repo.Commits.ToList();
-                    List<DateTime> dates = repo.Commits.QueryBy(new CommitFilter() { FirstParentOnly = true /*IncludeReachableFrom="master" */}).Select(c => c.Committer.When.LocalDateTime).ToList();
+                    List<DateTime> dates = repo.Commits
+                        .QueryBy(new CommitFilter() { FirstParentOnly = true/*, IncludeReachableFrom="master"*/})
+                        .Select(c => c.Committer.When.LocalDateTime)
+                        .ToList();
                     var counts = dates
                        .GroupBy(d => new { d.DayOfWeek, d.Hour })
                        .Select(g => new { g.Key.DayOfWeek, g.Key.Hour, Count = g.Count() });
