@@ -20,20 +20,24 @@
         </Grid.RowDefinitions>
 
         <!--Folder list buttons-->
-        <StackPanel Grid.Column="0" Grid.Row="0" Margin="5" Orientation="Horizontal">
-            <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}"/>
-            <igoraryControls:ConfirmButton Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" ConfirmationMessage="Are you sure to delete this item?"/>
-        </StackPanel>
-
+        <Border Grid.Column="0" Grid.Row="0" Margin="5" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}">
+            <StackPanel  Orientation="Horizontal" Margin="0,0,0,5">
+                <Button Content="New" Margin="0,0,5,0" Command="{Binding NewCommand, Mode=OneWay}"/>
+                <igoraryControls:ConfirmButton Content="Delete..." Command="{Binding DeleteCommand, Mode=OneWay}" ConfirmationMessage="Are you sure to delete this item?"/>
+            </StackPanel>
+        </Border>
+        
         <!--Folder list-->
         <ListBox Grid.Column="0" Grid.Row="1" Margin="5,0" ItemsSource="{Binding ListItems}" SelectedIndex="{Binding SelectedItemIndex}" DisplayMemberPath="Caption" />
 
         <!--Item buttons-->
-        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="5">
-            <Button Content="Save" Command="{Binding SaveCommand, Mode=OneWay}" />
-            <Button Content="Cancel" Margin="5,0,0,0" Command="{Binding CancelCommand, Mode=OneWay}"/>
-        </StackPanel>
-
+        <Border Grid.Column="1" Grid.Row="0" Margin="5" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Button Content="Save" Command="{Binding SaveCommand, Mode=OneWay}" />
+                <Button Content="Cancel" Margin="5,0,0,0" Command="{Binding CancelCommand, Mode=OneWay}"/>
+            </StackPanel>
+        </Border>
+        
         <!--Item-->
         <ItemsControl Margin="5,0" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Fields, Mode=OneWay}" HorizontalContentAlignment="Stretch">
             <ItemsControl.ItemTemplate>
