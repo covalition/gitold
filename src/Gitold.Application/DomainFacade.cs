@@ -1,52 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+using Igorary.Utils.Extensions;
 using LibGit2Sharp;
 
 namespace Gitold.Application
 {
-    // http://chrisparnin.github.io/articles/2013/09/parse-git-log-output-in-c/
-    public static class DomainFacade
-    {
-        //private static async Task<string> listShaWithFiles(string path) {
-        //    string output = await runProcess(string.Format(" --git-dir=\"{0}/.git\"  --work-tree=\"{1}\" log --name-status --date=iso", path.Replace("\\", "/"), path.Replace("\\", "/")));
-        //    return output;
-        //}
-
-        //private static async Task<string> runProcess(string command) {
-        //    Process p = new Process();
-        //    p.StartInfo.UseShellExecute = false;
-        //    p.StartInfo.RedirectStandardOutput = true;
-        //    p.StartInfo.RedirectStandardError = true;
-
-        //    string gitExecutable = Properties.Settings.Default.GitExecutable;
-        //    if (!File.Exists(gitExecutable))
-        //        throw new FileNotFoundException(string.Format("Git executable at {0} wasn't found.", gitExecutable));
-        //    p.StartInfo.FileName = gitExecutable;
-
-        //    p.StartInfo.Arguments = command;
-        //    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-        //    p.StartInfo.CreateNoWindow = true;
-        //    p.ErrorDataReceived += p_ErrorDataReceived;
-        //    p.Start();
-        //    p.BeginErrorReadLine();
-        //    string output = await p.StandardOutput.ReadToEndAsync();
-        //    p.WaitForExit();
-        //    return output;
-        //}
-
-        //static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e) {
-        //    if (e.Data != null)
-        //        // MessageBox.Show(e.Data);
-        //        throw new Exception($"ErrorDataReceived: {e.Data}");
-        //}
-
+    public static class DomainFacade {
         public static async Task<int[,]> GetCommitCounts(string[] repoPaths) {
             int[,] res = new int[7, 24];
 
@@ -82,6 +43,40 @@ namespace Gitold.Application
                         res[(int)c.DayOfWeek, c.Hour] = c.Count;
 
                     return res;
+                }
+            });
+        }
+
+        public static async Task<Details> GetRepoDetails(string[] repoPaths) {
+            List<Task<Details>> tasks = new List<Task<Details>>();
+            foreach (string repoPath in repoPaths) {
+                tasks.Add(GetRepoDetails(repoPath));
+            }
+
+            Details details = new Details();
+
+            foreach (Task<Details> t in tasks) {
+                Details d = await t;
+                details.DateFrom = details.DateFrom.Min(d.DateFrom);
+                details.DateTo = details.DateFrom.Max(d.DateTo);
+                details.Commiters.AddRange(d.Commiters.Except(details.Commiters));
+            }
+
+            return details;
+        }
+
+        private static Task<Details> GetRepoDetails(string repoPath) {
+            return Task.Run(() =>
+            {
+                using (Repository repo = new Repository(repoPath)) {
+                    List<Commit> commits = repo.Commits.ToList();
+                    if (!commits.Any())
+                        return null;
+                    Details details = new Details();
+                    details.Commiters.AddRange(commits.Select(c => c.Committer.Email).ToList());
+                    details.DateFrom = commits.OrderBy(c => c.Committer.When).FirstOrDefault().Committer.When.LocalDateTime;
+                    details.DateTo = commits.OrderByDescending(c => c.Committer.When).FirstOrDefault().Committer.When.LocalDateTime;
+                    return details;
                 }
             });
         }

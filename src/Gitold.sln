@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Wpf", "..\submodule
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Igorary.Xaml.Shared", "..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.shproj", "{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Utils", "..\submodules\Igorary\src\Igorary.Utils\Igorary.Utils.csproj", "{C83663FA-C839-4315-9938-29D0A91C1B26}"
+EndProject
 Global
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
@@ -55,6 +57,10 @@ Global
 		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +69,6 @@ Global
 		{F076E99F-68C4-4518-B448-247445B55E40} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 		{E244578F-C42E-40B0-ADD0-73A5812F4AA1} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 		{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{C83663FA-C839-4315-9938-29D0A91C1B26} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 	EndGlobalSection
 EndGlobal

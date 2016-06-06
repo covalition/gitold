@@ -1,5 +1,4 @@
 ﻿<Window 
-    x:Class="Gitold.MainWindow" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Gitold"
@@ -7,10 +6,15 @@
     xmlns:ViewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" 
+    x:Class="Gitold.MainWindow"
     WindowStyle="None" 
     WindowState="Maximized"  
     ResizeMode="CanResizeWithGrip"
     Title="Gitold.Covalition" MinWidth="690" MinHeight="420">
+    <Window.Resources>
+        <xcdg:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
@@ -24,8 +28,8 @@
         </Grid.RowDefinitions>
         <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource GrayBrush7}" FontSize="20">Gitold</TextBlock>
-                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource AccentColorBrush3}" FontSize="20">Covalition</TextBlock>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource GrayBrush7}" FontSize="20"><Run Text="Gitold"/></TextBlock>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource AccentColorBrush3}" FontSize="20"><Run Text="Covalition"/></TextBlock>
 
                 <!--Buttons: minimize, maximize, restore, close-->
                 <DockPanel DockPanel.Dock="Right">
@@ -78,11 +82,11 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        
+
                         <GroupBox Header="Local Repo Paths">
                             <ListBox SelectionMode="Multiple" ItemsSource="{Binding Paths}" DisplayMemberPath="Caption">
                                 <ListBox.ItemContainerStyle>
-                                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
                                         <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
                                     </Style>
                                 </ListBox.ItemContainerStyle>
@@ -100,22 +104,19 @@
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                
-                                <CheckBox Grid.Column="1" Content="All Dates" Margin="5,0,5,5"/>
-                                <Label Grid.Row="1" Content="From"></Label>
-                                <DatePicker Grid.Row="1" Grid.Column="1" Margin="5,0,5,5"/>
-                                <Label Content="To" Grid.Row="2"></Label>
-                                <DatePicker Grid.Column="1" Grid.Row="2" Margin="5,0,5,5"/>
-                                <ComboBox SelectedIndex="0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5">
-                                    <ComboBoxItem Content="[All Authors]" />
-                                    <ComboBoxItem Content="Stefan" />
-                                    <ComboBoxItem Content="Roman" />
+
+                                <CheckBox x:Name="cbAllDates" Grid.Column="1" Content="All Dates" Margin="5,0,5,5" IsChecked="{Binding AllDates}"/>
+                                <Label Grid.Row="1" Content="From"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateFrom}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <Label Content="To" Grid.Row="2"/>
+                                <DatePicker Grid.Column="1" Grid.Row="2" Margin="5,0,5,5" SelectedDate="{Binding DateTo}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <ComboBox SelectedIndex="0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5" ItemsSource="{Binding Authors}">
+                                    <!--<ComboBoxItem Content="[All Authors]" />-->
                                 </ComboBox>
-                                
                             </Grid>
                         </GroupBox>
-                        
-                        <Button Grid.Row="2" Command="{Binding Refresh}" Margin="5,0,5,5">Refresh</Button>
+
+                        <Button Grid.Row="2" Command="{Binding Refresh}" Margin="5,0,5,5" Content="Refresh"/>
                     </Grid>
                     <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{DynamicResource AccentColorBrush4}" Margin="0,20"/>
                     <TabControl Grid.Column="2" Margin="2,-2,2,2">
@@ -142,11 +143,11 @@
                         <StackPanel Orientation="Horizontal">
                             <ComboBox SelectedIndex="0" x:Name="cbTheme" Width="115" />
                             <ComboBox Margin="5,0" SelectedIndex="0" x:Name="cbAccent" Width="115" />
-                            <Button x:Name="btnSetTheme" Click="btnSetTheme_Click">Set</Button>
+                            <Button x:Name="btnSetTheme" Click="btnSetTheme_Click" Content="Set"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
-                
+
             </TabItem>
         </TabControl>
     </Grid>

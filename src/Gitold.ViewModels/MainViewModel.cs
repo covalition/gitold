@@ -73,9 +73,7 @@ namespace Gitold.ViewModels
 
                 for (int h = 0; h < 24; h++)
                     DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
-
-                //Properties.Settings.Default.LocalRepoPath = Path;
-                //Properties.Settings.Default.Save();
+               
             }
             catch (Exception ex) {
                 // MessageBox.Show(ex.Message);
@@ -101,11 +99,28 @@ namespace Gitold.ViewModels
 
         public List<PathItemViewModel> Paths {
             get {
-                return _paths ?? (_paths = 
-                    Properties.Settings.Default.LocalRepoPaths
-                    .Cast<string>()
-                    .Select(s => new PathItemViewModel { Caption = s })
-                    .ToList());
+                if(_paths == null) {
+                    _paths = Properties.Settings.Default.LocalRepoPaths
+                        .Cast<string>()
+                        .Select(s => new PathItemViewModel { Caption = s })
+                        .ToList();
+                    readDatesAndAuthors();
+                }
+                return _paths;
+            }
+        }
+
+        private async void readDatesAndAuthors() {
+            Refreshing = true;
+            try {
+                Details details = await DomainFacade.GetRepoDetails(Properties.Settings.Default.LocalRepoPaths.Cast<string>().ToArray());
+                DateFrom = details.DateFrom;
+                DateTo = details.DateTo;
+                details.Commiters.Insert(0, "[All Commiters]");
+                Authors = details.Commiters;
+            }
+            finally {
+                Refreshing = false;
             }
         }
 
@@ -124,6 +139,62 @@ namespace Gitold.ViewModels
                         }
                 }
                 return _dayViewModels;
+            }
+        }
+
+        private DateTime _dateFrom;
+
+        public DateTime DateFrom {
+            get {
+                return _dateFrom;
+            }
+            set {
+                if (value != _dateFrom) {
+                    _dateFrom = value;
+                    RaisePropertyChanged(nameof(DateFrom));
+                }
+            }
+        }
+
+        private DateTime _dateTo;
+
+        public DateTime DateTo {
+            get {
+                return _dateTo;
+            }
+            set {
+                if (value != _dateTo) {
+                    _dateTo = value;
+                    RaisePropertyChanged(nameof(DateTo));
+                }
+            }
+        }
+
+        private bool _allDates;
+
+        public bool AllDates {
+            get {
+                return _allDates;
+            }
+            set {
+                if (value != _allDates) {
+                    _allDates = value;
+                    RaisePropertyChanged(nameof(AllDates));
+                }
+            }
+        }
+
+        private IEnumerable<string> _authors;
+
+        public IEnumerable<string> Authors {
+            get {
+                return _authors;
+            }
+            set {
+                if (value != _authors) {
+                    _authors = value;
+                    RaisePropertyChanged(nameof(Authors));
+                }
             }
         }
 
