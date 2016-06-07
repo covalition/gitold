@@ -142,9 +142,9 @@ namespace Gitold.ViewModels
             }
         }
 
-        private DateTime _dateFrom;
+        private DateTime? _dateFrom;
 
-        public DateTime DateFrom {
+        public DateTime? DateFrom {
             get {
                 return _dateFrom;
             }
@@ -156,9 +156,9 @@ namespace Gitold.ViewModels
             }
         }
 
-        private DateTime _dateTo;
+        private DateTime? _dateTo;
 
-        public DateTime DateTo {
+        public DateTime? DateTo {
             get {
                 return _dateTo;
             }

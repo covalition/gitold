@@ -149,6 +149,9 @@
     <Compile Include="UserControls\EditLocalPaths.xaml.cs">
       <DependentUpon>EditLocalPaths.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PleaseWait.xaml.cs">
+      <DependentUpon>PleaseWait.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\EditLocalPaths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PleaseWait.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
