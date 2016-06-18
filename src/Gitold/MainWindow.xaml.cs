@@ -29,6 +29,7 @@ namespace Gitold
             (Application.Current as App).SwitchResources("Accent", Properties.Settings.Default.Accent);
             cbTheme.SelectedValue = Properties.Settings.Default.Theme;
             cbAccent.SelectedValue = Properties.Settings.Default.Accent;
+            updateButtons();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e) {
@@ -37,6 +38,11 @@ namespace Gitold
 
         private void btnRestore_Click(object sender, RoutedEventArgs e) {
             WindowState = WindowState.Normal;
+        }
+
+        private void updateButtons() {
+            btnRestore.Visibility = WindowState == WindowState.Maximized ? Visibility.Visible : Visibility.Collapsed;
+            btnMaximize.Visibility = WindowState == WindowState.Maximized ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e) {
@@ -52,6 +58,9 @@ namespace Gitold
             (Application.Current as App).SwitchResources("Accent", Properties.Settings.Default.Accent = cbAccent.SelectedValue as string);
             Properties.Settings.Default.Save();
         }
-        
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+            updateButtons();
+        }
     }
 }

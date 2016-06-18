@@ -13,7 +13,7 @@
     WindowStyle="None" 
     WindowState="Maximized"  
     ResizeMode="CanResizeWithGrip"
-    Title="Gitold.Covalition" MinWidth="690" MinHeight="420">
+    Title="Gitold.Covalition" MinWidth="690" MinHeight="420" SizeChanged="Window_SizeChanged">
     <Window.Resources>
         <Converters:EmptyToStringConverter x:Key="EmptyToStringConverter"/>
         <xcad:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
@@ -38,28 +38,28 @@
                 <!--Buttons: minimize, maximize, restore, close-->
                 <DockPanel DockPanel.Dock="Right">
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMinimize" Click="btnMinimize_Click">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMinimize" Click="btnMinimize_Click" ToolTip="Minimize">
                             <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_minimize}" />
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnRestore" Click="btnRestore_Click">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnRestore" Click="btnRestore_Click" ToolTip="Restore">
                             <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_restore}" />
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMaximize" Click="btnMaximize_Click">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMaximize" Click="btnMaximize_Click" ToolTip="Maximize">
                             <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_maximize}" />
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnClose" Click="btnClose_Click">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnClose" Click="btnClose_Click" ToolTip="Close">
                             <Rectangle Fill="Red" Height="12" Width="12">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_close}" />
