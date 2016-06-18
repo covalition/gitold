@@ -30,7 +30,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}">
+        <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}" x:Name="borderTitle" MouseDown="borderTitle_MouseDown">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource GrayBrush7}" FontSize="20"><Run Text="Gitold"/></TextBlock>
                 <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource AccentColorBrush3}" FontSize="20"><Run Text="Covalition"/></TextBlock>

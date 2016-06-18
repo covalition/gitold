@@ -62,5 +62,10 @@ namespace Gitold
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
             updateButtons();
         }
+
+        private void borderTitle_MouseDown(object sender, MouseButtonEventArgs e) {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
     }
 }
