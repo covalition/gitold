@@ -8,12 +8,12 @@ using LibGit2Sharp;
 namespace Gitold.Application
 {
     public static class DomainFacade {
-        public static async Task<int[,]> GetCommitCounts(string[] repoPaths) {
+        public static async Task<int[,]> GetCommitCounts(string[] repoPaths, string commiter, DateTime? dateFrom, DateTime? dateTo) {
             int[,] res = new int[7, 24];
 
             List<Task<int[,]>> tasks = new List<Task<int[,]>>();
             foreach (string repoPath in repoPaths) {
-                tasks.Add(GetCommitCounts(repoPath));
+                tasks.Add(GetCommitCounts(repoPath, commiter, dateFrom, dateTo));
             }
 
             foreach (Task<int[,]> t in tasks) {
@@ -26,13 +26,18 @@ namespace Gitold.Application
             return res;
         }
 
-        private static Task<int[,]> GetCommitCounts(string repoPath) {
+        private static Task<int[,]> GetCommitCounts(string repoPath, string commiter, DateTime? dateFrom, DateTime? dateTo) {
             return Task.Run(() =>
             {
                 using (Repository repo = new Repository(repoPath)) {
                     int[,] res = new int[7, 24];
                     List<DateTime> dates = repo.Commits
                         .QueryBy(new CommitFilter() { FirstParentOnly = true/*, IncludeReachableFrom="master"*/})
+                        .Where(c => 
+                            (string.IsNullOrEmpty(commiter) || commiter.ToLower() == c.Committer.Email.ToLower()) &&
+                            (dateFrom == null || c.Committer.When >= dateFrom.Value) &&
+                            (dateTo == null || c.Committer.When <= dateTo.Value)
+                        )
                         .Select(c => c.Committer.When.LocalDateTime)
                         .ToList();
                     var counts = dates
@@ -54,13 +59,16 @@ namespace Gitold.Application
             }
 
             Details details = new Details();
+            details.Commiters = new List<string>();
 
             foreach (Task<Details> t in tasks) {
                 Details d = await t;
                 details.DateFrom = details.DateFrom.Min(d.DateFrom);
                 details.DateTo = details.DateFrom.Max(d.DateTo);
-                details.Commiters.AddRange(d.Commiters.Except(details.Commiters));
+                details.Commiters.AddRange(d.Commiters);
             }
+
+            details.Commiters = details.Commiters.Distinct().ToList();
 
             return details;
         }
@@ -73,7 +81,7 @@ namespace Gitold.Application
                     if (!commits.Any())
                         return null;
                     Details details = new Details();
-                    details.Commiters.AddRange(commits.Select(c => c.Committer.Email).ToList());
+                    details.Commiters = commits.Select(c => c.Committer.Email.ToLower()).ToList();
                     details.DateFrom = commits.OrderBy(c => c.Committer.When).FirstOrDefault().Committer.When.LocalDateTime;
                     details.DateTo = commits.OrderByDescending(c => c.Committer.When).FirstOrDefault().Committer.When.LocalDateTime;
                     return details;

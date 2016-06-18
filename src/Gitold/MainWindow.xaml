@@ -7,12 +7,16 @@
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" 
+    xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
+    xmlns:Converters="clr-namespace:Gitold.Converters" 
     x:Class="Gitold.MainWindow"
     WindowStyle="None" 
     WindowState="Maximized"  
     ResizeMode="CanResizeWithGrip"
     Title="Gitold.Covalition" MinWidth="690" MinHeight="420">
     <Window.Resources>
+        <Converters:EmptyToStringConverter x:Key="EmptyToStringConverter"/>
+        <xcad:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <xcdg:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
     </Window.Resources>
     <WindowChrome.WindowChrome>
@@ -70,9 +74,9 @@
             <TabItem Header="Charts">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="180"/>
+                        <ColumnDefinition Width="180" MinWidth="180"/>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition MinWidth="180"/>
+                        <ColumnDefinition Width="*" MinWidth="180"/>
                     </Grid.ColumnDefinitions>
 
                     <!--Chart options-->
@@ -99,19 +103,26 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-
-                                <CheckBox x:Name="cbAllDates" Grid.Column="1" Content="All Dates" Margin="5,0,5,5" IsChecked="{Binding AllDates}"/>
-                                <Label Grid.Row="1" Content="From"/>
-                                <DatePicker Grid.Row="1" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateFrom}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
-                                <Label Content="To" Grid.Row="2"/>
-                                <DatePicker Grid.Column="1" Grid.Row="2" Margin="5,0,5,5" SelectedDate="{Binding DateTo}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
-                                <ComboBox SelectedIndex="0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5" ItemsSource="{Binding Authors}">
-                                    <!--<ComboBoxItem Content="[All Authors]" />-->
+                                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Red" Background="#DDEFEFEF" Margin="4" Visibility="{Binding IsFilterRefreshing, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <TextBlock Text="Refreshing filter options..." Foreground="Red" Margin="4" />
+                                </Border>
+                                <CheckBox Grid.Row="1" x:Name="cbAllDates" Grid.Column="1" Content="All Dates" Margin="5,0,5,5" IsChecked="{Binding AllDates}"/>
+                                <Label Grid.Row="2" Content="From"/>
+                                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateFrom}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <Label Grid.Row="3" Content="To" />
+                                <DatePicker Grid.Row="3" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateTo}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <ComboBox Grid.Row="4" SelectedIndex="{Binding SelectedAuthor}" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5" ItemsSource="{Binding Authors}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ConverterParameter='[All Authors]', Converter={StaticResource EmptyToStringConverter}, Mode=OneWay}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
                                 </ComboBox>
                             </Grid>
                         </GroupBox>

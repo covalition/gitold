@@ -8,7 +8,7 @@ namespace Gitold.Application
 {
     public class Details
     {
-        public List<string> Commiters { get; private set; } = new List<string>();
+        public List<string> Commiters { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
     }

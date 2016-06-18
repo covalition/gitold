@@ -142,15 +142,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\EmptyToStringConverter.cs" />
     <Compile Include="MultiplicationConverter.cs" />
     <Compile Include="UserControls\Day.xaml.cs">
       <DependentUpon>Day.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\EditLocalPaths.xaml.cs">
       <DependentUpon>EditLocalPaths.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\PleaseWait.xaml.cs">
-      <DependentUpon>PleaseWait.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
@@ -184,10 +182,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\EditLocalPaths.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\PleaseWait.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,6 +254,7 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

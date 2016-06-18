@@ -43,7 +43,7 @@ namespace Gitold.ViewModels
             Refreshing = true;
             try {
                 string[] paths = Paths.Where(p => p.IsSelected).Select(p => p.Caption).ToArray();
-                int[,] _values = await DomainFacade.GetCommitCounts(paths);
+                int[,] _values = await DomainFacade.GetCommitCounts(paths, Authors[SelectedAuthor], AllDates? null: DateFrom, AllDates? null: DateTo);
                 int max = _values.Cast<int>().Max();
                 int maxSumH = 0, maxSumD = 0;
                 for (int d = 0; d < 8; d++) {
@@ -84,16 +84,30 @@ namespace Gitold.ViewModels
             }
         }
 
-        internal void PathsChanged() {
-            _paths = null;
-            RaisePropertyChanged(nameof(Paths));
-        }
-
         private bool refreshCanExecute() {
             return !_refreshing;
         }
 
         #endregion
+
+        private bool _isFilterRefreshing;
+
+        public bool IsFilterRefreshing {
+            get {
+                return _isFilterRefreshing;
+            }
+            set {
+                if (value != _isFilterRefreshing) {
+                    _isFilterRefreshing = value;
+                    RaisePropertyChanged(nameof(IsFilterRefreshing));
+                }
+            }
+        }
+
+        internal void PathsChanged() {
+            _paths = null;
+            RaisePropertyChanged(nameof(Paths));
+        }
 
         private List<PathItemViewModel> _paths;
 
@@ -111,16 +125,16 @@ namespace Gitold.ViewModels
         }
 
         private async void readDatesAndAuthors() {
-            Refreshing = true;
+            IsFilterRefreshing = true;
             try {
                 Details details = await DomainFacade.GetRepoDetails(Properties.Settings.Default.LocalRepoPaths.Cast<string>().ToArray());
                 DateFrom = details.DateFrom;
                 DateTo = details.DateTo;
-                details.Commiters.Insert(0, "[All Commiters]");
+                // details.Commiters.Insert(0, string.Empty);
                 Authors = details.Commiters;
             }
             finally {
-                Refreshing = false;
+                IsFilterRefreshing = false;
             }
         }
 
@@ -184,10 +198,26 @@ namespace Gitold.ViewModels
             }
         }
 
-        private IEnumerable<string> _authors;
+        private int _selectedAuthor;
 
-        public IEnumerable<string> Authors {
+        public int SelectedAuthor {
             get {
+                return _selectedAuthor;
+            }
+            set {
+                if (value != _selectedAuthor) {
+                    _selectedAuthor = value;
+                    RaisePropertyChanged(nameof(SelectedAuthor));
+                }
+            }
+        }
+
+        private List<string> _authors = new List<string>();
+
+        public List<string> Authors {
+            get {
+                if(_authors.FirstOrDefault() != string.Empty)
+                    _authors.Insert(0, string.Empty);
                 return _authors;
             }
             set {
