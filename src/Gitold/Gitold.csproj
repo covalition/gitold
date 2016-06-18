@@ -15,7 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>..\..\setup\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,7 +25,14 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/romanoza/LocalRepoPunchCard/master/Gitoza/publish/</InstallUrl>
+    <InstallUrl>http://covalition.github.io/gitold/setup/</InstallUrl>
+    <SupportUrl>https://github.com/gitold/octopus/issues</SupportUrl>
+    <ErrorReportUrl>https://github.com/gitold/octopus/issues</ErrorReportUrl>
+    <ProductName>Gitold.Covalition</ProductName>
+    <PublisherName>Covalition</PublisherName>
+    <SuiteName>Gitold.Covalition</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>install.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.2.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
