@@ -9,7 +9,7 @@ namespace Gitold.Application
     public class Details
     {
         public List<string> Commiters { get; set; }
-        public DateTime DateFrom { get; set; }
-        public DateTime DateTo { get; set; }
+        public DateTime? DateFrom { get; set; }
+        public DateTime? DateTo { get; set; }
     }
 }

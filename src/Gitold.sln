@@ -24,6 +24,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Igorary.Xaml.Shared", "..\s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Utils", "..\submodules\Igorary\src\Igorary.Utils\Igorary.Utils.csproj", "{C83663FA-C839-4315-9938-29D0A91C1B26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.ViewModels.Tests", "..\submodules\Igorary\tests\Igorary.ViewModels.Tests\Igorary.ViewModels.Tests.csproj", "{124D42F8-7408-44F4-A5EE-819727816331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Utils.Tests", "..\submodules\Igorary\src\Igorary.Utils.Tests\Igorary.Utils.Tests.csproj", "{FD036780-3507-4F26-90CD-A4E9E38753EA}"
+EndProject
 Global
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
@@ -61,6 +65,14 @@ Global
 		{C83663FA-C839-4315-9938-29D0A91C1B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,5 +82,7 @@ Global
 		{E244578F-C42E-40B0-ADD0-73A5812F4AA1} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 		{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 		{C83663FA-C839-4315-9938-29D0A91C1B26} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{124D42F8-7408-44F4-A5EE-819727816331} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{FD036780-3507-4F26-90CD-A4E9E38753EA} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
 	EndGlobalSection
 EndGlobal

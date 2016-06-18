@@ -37,7 +37,7 @@ namespace Gitold.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Theal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Teal")]
         public string Accent {
             get {
                 return ((string)(this["Accent"]));

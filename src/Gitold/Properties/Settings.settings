@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Light Theme</Value>
     </Setting>
     <Setting Name="Accent" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Theal</Value>
+      <Value Profile="(Default)">Teal</Value>
     </Setting>
   </Settings>
 </SettingsFile>
