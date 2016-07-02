@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>K/DLCh9ykdMLGSw/jaeHFl6zBcEauwAQlibmzNE0i7s=</dsig:DigestValue>
+        <dsig:DigestValue>doEO4wwQQkJzGN0AkDIUTPJOiTPslkMZN13opxhXMxs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gitold.Covalition.exe" size="2299824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gitold.Covalition.exe" size="2300336">
       <assemblyIdentity name="Gitold.Covalition" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7jLnI9RMD/qT+wJfhPG2bBBEvVM17gw+qrTXtj1p7JE=</dsig:DigestValue>
+        <dsig:DigestValue>vP40Yy5ThHMYOAHGu3IBrG/bCfEtL/Kw7tqdz/2Rz4Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wpS8rP+SFr8T1uhRloYKUgkFo/3WZSfQh903F7Eal5M=</dsig:DigestValue>
+        <dsig:DigestValue>VS16ixLuWo+Qu4zb5yyReLft8pSqwrNgrnFFu2gDUl4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -121,7 +121,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gdvmwOjaUJyDImxGPics6kJa/pYVJEEYkDRIk66rJd8=</dsig:DigestValue>
+        <dsig:DigestValue>jDJMpvsQtEERvnv5FthqWgnAHjMATfcOc1sIAzWnvas=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -133,7 +133,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pcXLaydwaceF3SuUycse3mi8nU/Jtog8GuWVe70Cj80=</dsig:DigestValue>
+        <dsig:DigestValue>IuauzwSY0FVF5H4+bIPOXbWOzBkVoMotWRlRBPGEyz8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,7 +145,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>g/TIY59MY96+U8YkirLeP4JcuSsAFwhPjE6/owsYw5k=</dsig:DigestValue>
+        <dsig:DigestValue>f3G4vHrwVkQecbCyVwOsv9xduPHPE23g8czgWbLraNg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -389,13 +389,31 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Gitold.Covalition.exe.config" size="2173">
+  <file name="Gitold.Covalition.exe.config" size="2172">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9u6vUwBUSKHeO3OrPAjMmHK+6ZFOhCHjPqrTHpjLXVc=</dsig:DigestValue>
+      <dsig:DigestValue>3rxYLInKrqK79jRDOfZ5ctTtjQA1B/aDO++Y6l7PtyA=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=ASUS-WIN8\Alf" issuerKeyHash="0ffa8bac05fcae569a4c11742ceaf54976ef8aa9" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>QJowYx0Ot7R7272eMmPQrIQV0JK5DvH7sDqYih4tfqA=</DigestValue></Reference></SignedInfo><SignatureValue>eJD7Xz/A/59XXyIEsXeoc52nI9rzeRn9+RlM05FOkDg5yYEZ+ij/beuu1c0kN4rhMldmKlolk2nZQ+kuzfgoe/sfTH2Xgx4JZNl5D/qC12p69lWYs6+PAJj1+9P6Zah8+wmpMr5lSflu2KWaSTc+Fkxe68Hqope7U7CFmTF0xzg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>urCAXyR09p3p7HM1PNXXTzkBoubXLxnwmK6pvb8zVndIAwmvj7fIrOHB2eDsLwtaGP2xY2ruRbehh7FPsyGSt2Yvwfu5n1TywtHm1TUf8OhGUqttCDeJfyeKPAwy8dh3xrMRZgOhC3Upfpm/gmQtQxYU2f0aYx6XHgS04irFQA0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a07e2d1e8a983ab0fbf10eb992d01584acd063329ebddb7bb4b70e1d63309a40" Description="" Url=""><as:assemblyIdentity name="Gitold.Covalition.exe" version="1.2.0.0" publicKeyToken="d75f123dff9e95ed" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ASUS-WIN8\Alf</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>1V6t3wYid6pVoOyOveauB8eHGGokja0ytAAUUlxnbWo=</DigestValue></Reference></SignedInfo><SignatureValue>plHrhrQEYlDJozyNt4rOkVC8zf1yCCRX0gvF/BLzB4ArMnJkpJbq8zm01/FkPhLVGfbhp66ww4nteeD+3gZQTuqMNp1WoTvTzZ7/QtEIp6ifCWnbbxtrJ1vo0ze8JgGp0MnDs2UrjN/t1JghuMQI9+Spl+NP7H/Vvyvq53WheHY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>urCAXyR09p3p7HM1PNXXTzkBoubXLxnwmK6pvb8zVndIAwmvj7fIrOHB2eDsLwtaGP2xY2ruRbehh7FPsyGSt2Yvwfu5n1TywtHm1TUf8OhGUqttCDeJfyeKPAwy8dh3xrMRZgOhC3Upfpm/gmQtQxYU2f0aYx6XHgS04irFQA0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQPDqO2MYdKa1InsvN16o6vDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoAQQBTAFUAUwAtAFcASQBOADgAXABBAGwAZjAeFw0xNjAzMTkxODA1MjdaFw0xNzAzMjAwMDA1MjdaMCUxIzAhBgNVBAMeGgBBAFMAVQBTAC0AVwBJAE4AOABcAEEAbABmMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6sIBfJHT2nensczU81ddPOQGi5tcvGfCYrqm9vzNWd0gDCa+Pt8is4cHZ4OwvC1oY/bFjau5Ft6GHsU+zIZK3Zi/B+7mfVPLC0ebVNR/w6EZSq20IN4l/J4o8DDLx2HfGsxFmA6ELdSl+mb+CZC1DFhTZ/RpjHpceBLTiKsVADQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAGDZHdTa7/7iBkdq5EPNxOb9X0ofhpX7sFNIif19VCDZd8muOFL7bsg1QDeTOgTIosXWdvMEnN6CW3rcIz360e3oVXUk55sABHAs5xV++DJJKE7oOAPYvr18CqYi1F4q9wOd5X2VMAV+oYDrp0GFNz5ybHuAi7r+icfdgBdynIsp</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+  <file name="lib\win32\x64\git2-381caf5.dll" size="1087488">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>T00TmuD13Ok2Kkecjjovz0hctCbYvd19oQeOP3YJtUo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="lib\win32\x86\git2-381caf5.dll" size="817664">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>agt3WIDo3S/ZtbqxMA2zIe0iovHM7KDbYvvhhFxiZmU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ASUS-WIN8\Alf" issuerKeyHash="0ffa8bac05fcae569a4c11742ceaf54976ef8aa9" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>8YQxF7mgHxr5EbmNymv0NpvRocVg0bVicnL/A3bcz9U=</DigestValue></Reference></SignedInfo><SignatureValue>ih0HnHJa3gjcmvxUNSa0uH2Ga8fdr3S072gy3YdSTYFnmLtAsAgukwJyer/sGiaLfjhRToIIqZxWEV5ZrcEDnPL8q1cmcR3c5xVovnxYVF7n9lDIbD/huqW3TgHL4viFWQQZ3v6HooUyIK20nkmnTnyxP9WDLAsVh6+pWNLIX0Q=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>urCAXyR09p3p7HM1PNXXTzkBoubXLxnwmK6pvb8zVndIAwmvj7fIrOHB2eDsLwtaGP2xY2ruRbehh7FPsyGSt2Yvwfu5n1TywtHm1TUf8OhGUqttCDeJfyeKPAwy8dh3xrMRZgOhC3Upfpm/gmQtQxYU2f0aYx6XHgS04irFQA0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d5cfdc7603ff727262b5d160c5a1d19b36f46bca8db911f91a1fa0b9173184f1" Description="" Url=""><as:assemblyIdentity name="Gitold.Covalition.exe" version="1.2.0.0" publicKeyToken="d75f123dff9e95ed" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ASUS-WIN8\Alf</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>oEIHdsd4EEhGnIMU2Azst2f2dsk+wxHYFRT48zsbnaw=</DigestValue></Reference></SignedInfo><SignatureValue>h/Zfm5aKqiGsSd+1OJbq6ZMIdQLC2nol6KO58sbDsBUeLZyf/pJsCMUoRjAxTqk37uvwqVjl4eOLZo3eoax+qXQchhO8uvjiNULYKU/wMxDeK+MfGPWdEGiaZC0PxVZ/eKCmPt20wdMRgs453z0/mTzzLvPDhJMwTiOwxnyrQek=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>urCAXyR09p3p7HM1PNXXTzkBoubXLxnwmK6pvb8zVndIAwmvj7fIrOHB2eDsLwtaGP2xY2ruRbehh7FPsyGSt2Yvwfu5n1TywtHm1TUf8OhGUqttCDeJfyeKPAwy8dh3xrMRZgOhC3Upfpm/gmQtQxYU2f0aYx6XHgS04irFQA0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQPDqO2MYdKa1InsvN16o6vDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoAQQBTAFUAUwAtAFcASQBOADgAXABBAGwAZjAeFw0xNjAzMTkxODA1MjdaFw0xNzAzMjAwMDA1MjdaMCUxIzAhBgNVBAMeGgBBAFMAVQBTAC0AVwBJAE4AOABcAEEAbABmMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6sIBfJHT2nensczU81ddPOQGi5tcvGfCYrqm9vzNWd0gDCa+Pt8is4cHZ4OwvC1oY/bFjau5Ft6GHsU+zIZK3Zi/B+7mfVPLC0ebVNR/w6EZSq20IN4l/J4o8DDLx2HfGsxFmA6ELdSl+mb+CZC1DFhTZ/RpjHpceBLTiKsVADQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAGDZHdTa7/7iBkdq5EPNxOb9X0ofhpX7sFNIif19VCDZd8muOFL7bsg1QDeTOgTIosXWdvMEnN6CW3rcIz360e3oVXUk55sABHAs5xV++DJJKE7oOAPYvr18CqYi1F4q9wOd5X2VMAV+oYDrp0GFNz5ybHuAi7r+icfdgBdynIsp</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
