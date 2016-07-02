@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Gitold.Application;
+using Gitold.ViewModels.Properties;
 
 namespace Gitold.ViewModels
 {
@@ -39,40 +40,27 @@ namespace Gitold.ViewModels
             }
         }
 
+        private const int ALL_DAYS = 7;
+        private const int ALL_HOURS = 24;
+
         private async void refreshAction() {
             Refreshing = true;
             try {
                 string[] paths = Paths.Where(p => p.IsSelected).Select(p => p.Caption).ToArray();
                 int[,] _values = await DomainFacade.GetCommitCounts(paths, Authors[SelectedAuthor], AllDates? null: DateFrom, AllDates? null: DateTo);
-                int max = _values.Cast<int>().Max();
+                int maxValue = _values.Cast<int>().Max();
                 int maxSumH = 0, maxSumD = 0;
-                for (int d = 0; d < 8; d++) {
-                    DayViewModels[d, 24].Value = 0; // clear sum
+                for (int d = 0; d < 8; d++) 
+                    maxSumD = updateDay(_values, maxValue, maxSumD, d);
 
-                    for (int h = 0; h < 25; h++) {
-                        if (d == 0)
-                            DayViewModels[7, h].Value = 0; // clear sum
-
-                        DayViewModel dayViewModel = DayViewModels[d, h];
-
-                        if (d < 7 && h < 24) {
-                            dayViewModel.Value = _values[d, h];
-                            DayViewModels[d, 24].Value += _values[d, h];
-                            DayViewModels[7, h].Value += _values[d, h];
-                            dayViewModel.Percent = max != 0 ? (double)dayViewModel.Value / max : 0.0;
-                        }
-                    }
-                    maxSumD = Math.Max(maxSumD, DayViewModels[d, 24].Value);
-                }
-
-                for(int d = 0; d < 7; d++)
-                    DayViewModels[d, 24].Percent = maxSumD != 0 ? (double)DayViewModels[d, 24].Value / maxSumD : 0.0;
+                for (int d = 0; d < 7; d++)
+                    DayViewModels[d, ALL_HOURS].Percent = maxSumD != 0 ? (double)DayViewModels[d, ALL_HOURS].Value / maxSumD : 0.0;
 
                 for (int h = 0; h < 24; h++)
-                    maxSumH = Math.Max(maxSumH, DayViewModels[7, h].Value);
+                    maxSumH = Math.Max(maxSumH, DayViewModels[ALL_DAYS, h].Value);
 
                 for (int h = 0; h < 24; h++)
-                    DayViewModels[7, h].Percent = maxSumH != 0 ? (double)DayViewModels[7, h].Value / maxSumH : 0.0;
+                    DayViewModels[ALL_DAYS, h].Percent = maxSumH != 0 ? (double)DayViewModels[ALL_DAYS, h].Value / maxSumH : 0.0;
                
             }
             catch (Exception ex) {
@@ -81,6 +69,30 @@ namespace Gitold.ViewModels
             }
             finally {
                 Refreshing = false;
+            }
+        }
+
+        private int updateDay(int[,] _values, int maxValue, int maxSumD, int day) {
+            DayViewModels[day, ALL_HOURS].Value = 0; // clear sum
+
+            for (int h = 0; h < 25; h++)
+                updateHour(_values, maxValue, day, h);
+
+            maxSumD = Math.Max(maxSumD, DayViewModels[day, ALL_HOURS].Value);
+            return maxSumD;
+        }
+
+        private void updateHour(int[,] _values, int maxValue, int day, int hour) {
+            if (day == 0)
+                DayViewModels[ALL_DAYS, hour].Value = 0; // clear sum
+
+            DayViewModel dayViewModel = DayViewModels[day, hour];
+
+            if (day < 7 && hour < 24) {
+                dayViewModel.Value = _values[day, hour];
+                DayViewModels[day, ALL_HOURS].Value += _values[day, hour];
+                DayViewModels[ALL_DAYS, hour].Value += _values[day, hour];
+                dayViewModel.Percent = maxValue != 0 ? (double)dayViewModel.Value / maxValue : 0.0;
             }
         }
 
@@ -127,7 +139,7 @@ namespace Gitold.ViewModels
         private async void readDatesAndAuthors() {
             IsFilterRefreshing = true;
             try {
-                Details details = await DomainFacade.GetRepoDetails(Properties.Settings.Default.LocalRepoPaths.Cast<string>().ToArray());
+                Details details = await DomainFacade.GetRepoDetails(Settings.Default.LocalRepoPaths.Cast<string>().ToArray());
                 DateFrom = details.DateFrom;
                 DateTo = details.DateTo;
                 // details.Commiters.Insert(0, string.Empty);
