@@ -7,9 +7,7 @@ Creates the punch card for your local git repository
 
 ### System Requirements ###
 
-* For use: 
-  * .NET Framework 4.6
-  * git.exe
+* For use: .NET Framework 4.6
 * For development: Visual Studio 2015
 
 ## Installation ##
@@ -18,6 +16,10 @@ You can download and install this application from: https://github.com/covalitio
 
 ## Screenshots ##
 
+Main screen
+
 ![Screen](doc/img/screen.png)
 
-More features soon (or later).
+Options
+
+![Screen](doc/img/screen2.png)
