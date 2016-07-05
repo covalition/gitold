@@ -1,0 +1,61 @@
+﻿<Application 
+    x:Class="Gitold.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:igorary="clr-namespace:Igorary.Xaml;assembly=Igorary.Wpf"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                
+                <!-- Accent and AppTheme setting -->
+                <!-- Themes: https://github.com/MahApps/MahApps.Metro/tree/develop/MahApps.Metro/Styles/Accents -->
+                <igorary:SwitchableDictionary Name="Accent" CurrentDictionaryName="Red">
+                    <igorary:SwitchableDictionary.Sources>
+                        <igorary:NamedResourceSource Name="Amber" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Amber.xaml" />
+                        <igorary:NamedResourceSource Name="Blue" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                        <igorary:NamedResourceSource Name="Brown" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Brown.xaml" />
+                        <igorary:NamedResourceSource Name="Cobalt" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                        <igorary:NamedResourceSource Name="Crimson" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Crimson.xaml" />
+                        <igorary:NamedResourceSource Name="Cyan" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cyan.xaml" />
+                        <igorary:NamedResourceSource Name="Emerald" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Emerald.xaml" />
+                        <igorary:NamedResourceSource Name="Green" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Green.xaml" />
+                        <igorary:NamedResourceSource Name="Indigo" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Indigo.xaml" />
+                        <igorary:NamedResourceSource Name="Lime" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Lime.xaml" />
+                        <igorary:NamedResourceSource Name="Magenta" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Magenta.xaml" />
+                        <igorary:NamedResourceSource Name="Mauve" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Mauve.xaml" />
+                        <igorary:NamedResourceSource Name="Olive" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Olive.xaml" />
+                        <igorary:NamedResourceSource Name="Orange" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
+                        <igorary:NamedResourceSource Name="Pink" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Pink.xaml" />
+                        <igorary:NamedResourceSource Name="Purple" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Purple.xaml" />
+                        <igorary:NamedResourceSource Name="Red" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                        <igorary:NamedResourceSource Name="Sienna" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Sienna.xaml" />
+                        <igorary:NamedResourceSource Name="Steel" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Steel.xaml" />
+                        <igorary:NamedResourceSource Name="Taupe" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Taupe.xaml" />
+                        <igorary:NamedResourceSource Name="Teal" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Teal.xaml" />
+                        <igorary:NamedResourceSource Name="Violet" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Violet.xaml" />
+                        <igorary:NamedResourceSource Name="Yellow" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Yellow.xaml" />
+                    </igorary:SwitchableDictionary.Sources>
+                </igorary:SwitchableDictionary>
+                
+                <igorary:SwitchableDictionary Name="Theme" CurrentDictionaryName="Light Theme">
+                    <igorary:SwitchableDictionary.Sources>
+                        <igorary:NamedResourceSource Name="Light Theme" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                        <igorary:NamedResourceSource Name="Dark Theme" Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                    </igorary:SwitchableDictionary.Sources>  
+                </igorary:SwitchableDictionary>
+                
+                <!-- Icons -->
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+                
+                <!--My styles-->
+                <ResourceDictionary Source="/Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

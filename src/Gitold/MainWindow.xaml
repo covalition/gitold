@@ -1,0 +1,165 @@
+﻿<Window 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Gitold"
+    xmlns:UserControls="clr-namespace:Gitold.UserControls"
+    xmlns:ViewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" 
+    xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
+    xmlns:Converters="clr-namespace:Gitold.Converters" 
+    x:Class="Gitold.MainWindow"
+    WindowStyle="None" 
+    WindowState="Maximized"  
+    ResizeMode="CanResizeWithGrip"
+    Title="Gitold.Covalition" MinWidth="690" MinHeight="420" SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <Converters:EmptyToStringConverter x:Key="EmptyToStringConverter"/>
+        <xcad:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <xcdg:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Window.DataContext>
+        <ViewModels:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Margin="14,10,14,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource AccentColorBrush4}" x:Name="borderTitle" MouseDown="borderTitle_MouseDown" Background="{DynamicResource ControlBackgroundBrush}">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource GrayBrush7}" FontSize="20"><Run Text="Gitold"/></TextBlock>
+                <TextBlock DockPanel.Dock="Left" FontWeight="SemiBold" Foreground="{DynamicResource AccentColorBrush3}" FontSize="20"><Run Text="Covalition"/></TextBlock>
+
+                <!--Buttons: minimize, maximize, restore, close-->
+                <DockPanel DockPanel.Dock="Right">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMinimize" Click="btnMinimize_Click" ToolTip="Minimize">
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_minimize}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnRestore" Click="btnRestore_Click" ToolTip="Restore">
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_restore}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnMaximize" Click="btnMaximize_Click" ToolTip="Maximize">
+                            <Rectangle Fill="{DynamicResource AccentColorBrush}" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_window_maximize}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Height="30" Width="30" Style="{DynamicResource DarkMetroWindowButtonStyle}" x:Name="btnClose" Click="btnClose_Click" ToolTip="Close">
+                            <Rectangle Fill="Red" Height="12" Width="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_close}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+        <TabControl Grid.Row="1" Margin="5,0,5,5">
+            <TabItem Header="Charts">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" MinWidth="180"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" MinWidth="180"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Chart options-->
+                    <Grid Grid.Column="0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <GroupBox Header="Local Repo Paths">
+                            <ListBox SelectionMode="Multiple" ItemsSource="{Binding Paths}" DisplayMemberPath="Caption">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+                        </GroupBox>
+                        <GroupBox Header="Filter" Grid.Row="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Red" Background="#DDEFEFEF" Margin="4" Visibility="{Binding IsFilterRefreshing, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <TextBlock Text="Refreshing filter options, please wait..." Foreground="Red" Margin="4" TextWrapping="Wrap"/>
+                                </Border>
+                                <CheckBox Grid.Row="1" x:Name="cbAllDates" Grid.Column="1" Content="All Dates" Margin="5,0,5,5" IsChecked="{Binding AllDates}"/>
+                                <Label Grid.Row="2" Content="From"/>
+                                <DatePicker Grid.Row="2" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateFrom}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <Label Grid.Row="3" Content="To" />
+                                <DatePicker Grid.Row="3" Grid.Column="1" Margin="5,0,5,5" SelectedDate="{Binding DateTo}" IsEnabled="{Binding AllDates, Converter={StaticResource InverseBooleanConverter}}"/>
+                                <ComboBox Grid.Row="4" SelectedIndex="{Binding SelectedAuthor}" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5" ItemsSource="{Binding Authors}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ConverterParameter='[All Authors]', Converter={StaticResource EmptyToStringConverter}, Mode=OneWay}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </Grid>
+                        </GroupBox>
+
+                        <Button Grid.Row="2" Command="{Binding Refresh}" Margin="5,0,5,5" Content="Refresh"/>
+                    </Grid>
+                    <GridSplitter HorizontalAlignment="Left" Grid.Column="1" Width="3" Background="{DynamicResource AccentColorBrush4}" Margin="0,20"/>
+                    <TabControl Grid.Column="2" Margin="2,-2,2,2">
+                        <TabItem Header="Punch Card">
+                            <UserControls:Week />
+                        </TabItem>
+                        <TabItem Header="All Days">
+                            <Label Content="Not implemented yet." />
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Folder settings">
+                        <UserControls:EditLocalPaths DataContext="{Binding PathSettings, Mode=OneWay}" />
+                    </GroupBox>
+                    <GroupBox Header="Theme" Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox SelectedIndex="0" x:Name="cbTheme" Width="115" />
+                            <ComboBox Margin="5,0" SelectedIndex="0" x:Name="cbAccent" Width="115" />
+                            <Button x:Name="btnSetTheme" Click="btnSetTheme_Click" Content="Set"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gitold.UserControls"
+             xmlns:ViewModels="clr-namespace:Gitold.ViewModels;assembly=Gitold.ViewModels"
+             xmlns:Gitold="clr-namespace:Gitold" x:Class="Gitold.UserControls.Day"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance Type={x:Type ViewModels:DayViewModel}}">
+
+    <UserControl.Resources>
+        <!--<Gitold:SummaryToBrushConverter x:Key="SummaryToBrushConverter"/>-->
+        <Gitold:MultiplicationConverter x:Key="MultiplicationConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="grid">
+        <Ellipse ToolTip="{Binding Value}" Stretch="Uniform">
+            <Ellipse.Style>
+                <Style TargetType="Ellipse">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSummary}" Value="true">
+                            <Setter Property="Fill" Value="{DynamicResource AccentColorBrush}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsSummary}" Value="false">
+                            <Setter Property="Fill" Value="{DynamicResource BlackBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Ellipse.Style>
+            <Ellipse.Width>
+                <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
+                    <Binding Path="Percent" Mode="OneWay"/>
+                    <Binding ElementName="grid" Path="ActualWidth" Mode="OneWay"/>
+                    <Binding ElementName="grid" Path="ActualHeight" Mode="OneWay"/>
+            </MultiBinding>
+            </Ellipse.Width>
+            <Ellipse.Height>
+                <MultiBinding Converter="{StaticResource MultiplicationConverter}" Mode="OneWay">
+                    <Binding Path="Percent" Mode="OneWay"/>
+                    <Binding ElementName="grid" Path="ActualHeight" Mode="OneWay"/>
+                    <Binding ElementName="grid" Path="ActualWidth" Mode="OneWay"/>
+                </MultiBinding>
+            </Ellipse.Height>
+        </Ellipse>
+    </Grid>
+</UserControl>

@@ -1,9 +1,14 @@
-# Gitold.Covalition #
+# Gitold.Covalition 1.2 #
 Local Git Repos Analyzer
 
 ## Project Description ##
 
 Creates the punch card for your local git repository
+
+### System Requirements ###
+
+* For use: .NET Framework 4.6
+* For development: Visual Studio 2015
 
 ## Installation ##
 
@@ -11,6 +16,10 @@ You can download and install this application from: https://github.com/covalitio
 
 ## Screenshots ##
 
-![Screen](img/screen.png)
+Main screen
 
-More features soon (or later).
+![Screen](doc/img/screen.png)
+
+Options
+
+![Screen](doc/img/screen2.png)

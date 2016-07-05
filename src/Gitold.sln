@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitold", "Gitold\Gitold.csproj", "{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C321A777-82A8-41F1-AF58-08F0A0B30492}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitold.ViewModels", "Gitold.ViewModels\Gitold.ViewModels.csproj", "{46AA7CBC-A9F3-43BB-BF8F-3450D01BD81C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitold.Application", "Gitold.Application\Gitold.Application.csproj", "{5ECF18B7-D098-40A1-AFF3-AB87A2DC4814}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Igorary", "Igorary", "{704CB6AA-E7A6-4ED7-BF10-E943AE23985A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.ViewModels", "..\submodules\Igorary\src\Igorary.ViewModels\Igorary.ViewModels.csproj", "{F076E99F-68C4-4518-B448-247445B55E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Wpf", "..\submodules\Igorary\src\Igorary.Wpf\Igorary.Wpf.csproj", "{E244578F-C42E-40B0-ADD0-73A5812F4AA1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Igorary.Xaml.Shared", "..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.shproj", "{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Utils", "..\submodules\Igorary\src\Igorary.Utils\Igorary.Utils.csproj", "{C83663FA-C839-4315-9938-29D0A91C1B26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.ViewModels.Tests", "..\submodules\Igorary\tests\Igorary.ViewModels.Tests\Igorary.ViewModels.Tests.csproj", "{124D42F8-7408-44F4-A5EE-819727816331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igorary.Utils.Tests", "..\submodules\Igorary\src\Igorary.Utils.Tests\Igorary.Utils.Tests.csproj", "{FD036780-3507-4F26-90CD-A4E9E38753EA}"
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.projitems*{e244578f-c42e-40b0-add0-73a5812f4aa1}*SharedItemsImports = 4
+		..\submodules\Igorary\src\Igorary.Xaml.Shared\Igorary.Xaml.Shared.projitems*{eaf0b9a3-7db9-4d7a-aea3-e7b1a3e64719}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ED2F73-70CD-4808-BD90-49F6A65BD2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46AA7CBC-A9F3-43BB-BF8F-3450D01BD81C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46AA7CBC-A9F3-43BB-BF8F-3450D01BD81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46AA7CBC-A9F3-43BB-BF8F-3450D01BD81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46AA7CBC-A9F3-43BB-BF8F-3450D01BD81C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECF18B7-D098-40A1-AFF3-AB87A2DC4814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECF18B7-D098-40A1-AFF3-AB87A2DC4814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECF18B7-D098-40A1-AFF3-AB87A2DC4814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECF18B7-D098-40A1-AFF3-AB87A2DC4814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F076E99F-68C4-4518-B448-247445B55E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F076E99F-68C4-4518-B448-247445B55E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F076E99F-68C4-4518-B448-247445B55E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F076E99F-68C4-4518-B448-247445B55E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E244578F-C42E-40B0-ADD0-73A5812F4AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83663FA-C839-4315-9938-29D0A91C1B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124D42F8-7408-44F4-A5EE-819727816331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD036780-3507-4F26-90CD-A4E9E38753EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F076E99F-68C4-4518-B448-247445B55E40} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{E244578F-C42E-40B0-ADD0-73A5812F4AA1} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{EAF0B9A3-7DB9-4D7A-AEA3-E7B1A3E64719} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{C83663FA-C839-4315-9938-29D0A91C1B26} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{124D42F8-7408-44F4-A5EE-819727816331} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+		{FD036780-3507-4F26-90CD-A4E9E38753EA} = {704CB6AA-E7A6-4ED7-BF10-E943AE23985A}
+	EndGlobalSection
+EndGlobal

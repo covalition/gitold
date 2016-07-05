@@ -1,0 +1,7 @@
+[submodule "submodules/Igorary"]
+	
+path = submodules/Igorary
+	
+url = https://github.com/covalition/igorary.git
+
+branch = master
