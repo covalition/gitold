@@ -3,7 +3,7 @@ Local Git Repos Analyzer
 
 ## Project Description ##
 
-Creates the punch card for your local git repository
+Creates a punch card for your local git repository
 
 ### System Requirements ###
 
